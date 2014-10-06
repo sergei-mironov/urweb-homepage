@@ -11,6 +11,8 @@ unexport MAIN
 URVERSION = $(shell urweb -version)
 .PHONY: all
 all: ./HomePage.db ./HomePage.exe ./HomePage.sql ./Makefile
+.PHONY: dropdb
+dropdb: ./HomePage.db ./Makefile
 ./HomePage.db: ./HomePage.exe ./HomePage.sql ./Makefile
 	dropdb --if-exists HomePage
 	createdb HomePage
@@ -22,8 +24,9 @@ all: ./HomePage.db ./HomePage.exe ./HomePage.sql ./Makefile
 .cake3/tmpHomePage.in0: ./Makefile
 	-rm -rf .cake3/tmpHomePage.in0
 	echo 'debug' >> .cake3/tmpHomePage.in0
-	echo 'sql ./HomePage.sql' >> .cake3/tmpHomePage.in0
 	echo 'library ./lib/urweb-monad-pack/test/XmlGen' >> .cake3/tmpHomePage.in0
+	echo 'sql ./HomePage.sql' >> .cake3/tmpHomePage.in0
+	echo 'database dbname=HomePage' >> .cake3/tmpHomePage.in0
 	echo '' >> .cake3/tmpHomePage.in0
 	echo './HomePage' >> .cake3/tmpHomePage.in0
 ./HomePage.sql: .fix-multy1
@@ -42,6 +45,8 @@ ifneq ($(MAKECMDGOALS),clean)
 
 .PHONY: all
 all: .fix-multy1
+.PHONY: dropdb
+dropdb: .fix-multy1
 .PHONY: ./HomePage.db
 ./HomePage.db: .fix-multy1
 .PHONY: ./HomePage.exe

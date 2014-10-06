@@ -12,11 +12,12 @@ project = do
 
   a <- uwapp "-dbms postgres" pn $ do
     debug
-    sql (pn.="sql")
     library' (externalMake3
        "lib/urweb-monad-pack/Makefile"
        "lib/urweb-monad-pack/test/XmlGen.urp"
        "test/XmlGen.urp")
+    sql (pn.="sql")
+    database ("dbname="++(takeBaseName pn))
     ur (pair "HomePage.ur")
 
   db <- rule $ do
@@ -26,6 +27,10 @@ project = do
     shell [cmd|createdb $(string dbn)|]
     shell [cmd|psql -f $(sql) $(string dbn)|]
     shell [cmd|touch @(sql.="db")|]
+
+  rule $ do
+    phony "dropdb"
+    depend db
 
   rule $ do
     phony "all"
