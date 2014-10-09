@@ -4,3 +4,6 @@
 [submodule "lib/uru3"]
 	path = lib/uru3
 	url = https://github.com/grwlf/uru3
+[submodule "lib/urweb-compet"]
+	path = lib/urweb-compet
+	url = https://github.com/grwlf/urweb-compet

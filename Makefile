@@ -8,6 +8,8 @@ unexport MAIN
 
 # Main section
 
+URCC = $(shell $(shell urweb -print-ccompiler) -print-prog-name=gcc)
+URINCL = -I$(shell urweb -print-cinclude) 
 URVERSION = $(shell urweb -version)
 .PHONY: all
 all: ./HomePage.db ./HomePage.exe ./HomePage.sql ./Makefile
@@ -19,22 +21,70 @@ dropdb: ./HomePage.db ./Makefile
 	psql -f ./HomePage.sql HomePage
 	touch ./HomePage.db
 ./HomePage.exe: .fix-multy1
-./HomePage.urp: ./HomePage.ur ./HomePage.urs ./Makefile ./lib/urweb-monad-pack/test/XmlGen.urp .cake3/tmpHomePage.in0
-	cat .cake3/tmpHomePage.in0 > ./HomePage.urp
-.cake3/tmpHomePage.in0: ./Makefile
-	-rm -rf .cake3/tmpHomePage.in0
-	echo 'debug' >> .cake3/tmpHomePage.in0
-	echo 'library ./lib/urweb-monad-pack/test/XmlGen' >> .cake3/tmpHomePage.in0
-	echo 'sql ./HomePage.sql' >> .cake3/tmpHomePage.in0
-	echo 'database dbname=HomePage' >> .cake3/tmpHomePage.in0
-	echo '' >> .cake3/tmpHomePage.in0
-	echo './HomePage' >> .cake3/tmpHomePage.in0
+./HomePage.urp: ./HomePage.ur ./HomePage.urs ./Makefile ./lib/urweb-compet/Compet.urp ./lib/urweb-monad-pack/test/XmlGenDemo.urp .cake3/tmpHomePage.in1
+	cat .cake3/tmpHomePage.in1 > ./HomePage.urp
+.cake3/tmpHomePage.in1: ./Makefile
+	-rm -rf .cake3/tmpHomePage.in1
+	echo 'debug' >> .cake3/tmpHomePage.in1
+	echo 'library ./lib/urweb-monad-pack/test/XmlGenDemo' >> .cake3/tmpHomePage.in1
+	echo 'library ./lib/urweb-compet/Compet' >> .cake3/tmpHomePage.in1
+	echo 'sql ./HomePage.sql' >> .cake3/tmpHomePage.in1
+	echo 'database dbname=HomePage' >> .cake3/tmpHomePage.in1
+	echo '' >> .cake3/tmpHomePage.in1
+	echo './HomePage' >> .cake3/tmpHomePage.in1
+./lib/urweb-compet/Compet.exe: .fix-multy2
+./lib/urweb-compet/Compet.urp: ./Makefile ./lib/urweb-compet/lib/uru3/Bootstrap/lib.urp ./lib/urweb-compet/src/Compet.ur ./lib/urweb-compet/src/Compet.urs ./lib/urweb-compet/src/Prelude.ur ./lib/urweb-compet/src/XmlGen.ur ./lib/urweb-monad-pack/lib.urp .cake3/tmpCompet.in0 autogen/Compet_css.ur autogen/Compet_css.urs autogen/Compet_css_c.h autogen/Compet_css_c.o
+	cat .cake3/tmpCompet.in0 > ./lib/urweb-compet/Compet.urp
+.cake3/tmpCompet.in0: ./Makefile
+	-rm -rf .cake3/tmpCompet.in0
+	echo 'allow mime text/javascript' >> .cake3/tmpCompet.in0
+	echo 'allow mime text/css' >> .cake3/tmpCompet.in0
+	echo 'allow mime image/jpeg' >> .cake3/tmpCompet.in0
+	echo 'allow mime image/png' >> .cake3/tmpCompet.in0
+	echo 'allow mime image/gif' >> .cake3/tmpCompet.in0
+	echo 'allow mime application/octet-stream' >> .cake3/tmpCompet.in0
+	echo 'allow url /Compet/*' >> .cake3/tmpCompet.in0
+	echo 'database dbname=Compet' >> .cake3/tmpCompet.in0
+	echo 'safeGet Compet/main' >> .cake3/tmpCompet.in0
+	echo 'safeGet Compet/init' >> .cake3/tmpCompet.in0
+	echo 'sql ../.././lib/urweb-compet/Compet.sql' >> .cake3/tmpCompet.in0
+	echo 'library ../.././lib/urweb-compet/lib/uru3/Bootstrap' >> .cake3/tmpCompet.in0
+	echo 'library ../.././lib/urweb-monad-pack' >> .cake3/tmpCompet.in0
+	echo 'include ../../autogen/Compet_css_c.h' >> .cake3/tmpCompet.in0
+	echo 'link ../../autogen/Compet_css_c.o' >> .cake3/tmpCompet.in0
+	echo 'ffi ../../autogen/Compet_css_c' >> .cake3/tmpCompet.in0
+	echo 'ffi ../../autogen/Compet_css_js' >> .cake3/tmpCompet.in0
+	echo 'allow mime text/css' >> .cake3/tmpCompet.in0
+	echo 'safeGet Compet_css/blobpage' >> .cake3/tmpCompet.in0
+	echo 'safeGet Compet_css/blob' >> .cake3/tmpCompet.in0
+	echo '' >> .cake3/tmpCompet.in0
+	echo '$$/list' >> .cake3/tmpCompet.in0
+	echo '$$/string' >> .cake3/tmpCompet.in0
+	echo '../.././lib/urweb-compet/src/Prelude' >> .cake3/tmpCompet.in0
+	echo '../.././lib/urweb-compet/src/XmlGen' >> .cake3/tmpCompet.in0
+	echo '../../autogen/Compet_css' >> .cake3/tmpCompet.in0
+	echo '../.././lib/urweb-compet/src/Compet' >> .cake3/tmpCompet.in0
 ./HomePage.sql: .fix-multy1
+./lib/urweb-compet/Compet.sql: .fix-multy2
 .INTERMEDIATE: .fix-multy1
 .fix-multy1: ./HomePage.urp ./Makefile $(call GUARD,URVERSION)
 	urweb -dbms postgres ./HomePage
+.INTERMEDIATE: .fix-multy2
+.fix-multy2: ./Makefile ./lib/urweb-compet/Compet.urp $(call GUARD,URVERSION)
+	urweb -dbms postgres ./lib/urweb-compet/Compet
+autogen/Compet_css_c.o: ./Makefile autogen/Compet_css_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Compet_css_c.o autogen/Compet_css_c.c
+$(call GUARD,URCC):
+	rm -f .cake3/GUARD_URCC_*
+	touch $@
+$(call GUARD,URINCL):
+	rm -f .cake3/GUARD_URINCL_*
+	touch $@
 $(call GUARD,URVERSION):
 	rm -f .cake3/GUARD_URVERSION_*
+	touch $@
+$(call GUARD,UR_CFLAGS):
+	rm -f .cake3/GUARD_UR_CFLAGS_*
 	touch $@
 
 else
@@ -53,20 +103,32 @@ dropdb: .fix-multy1
 ./HomePage.exe: .fix-multy1
 .PHONY: ./HomePage.urp
 ./HomePage.urp: .fix-multy1
-.PHONY: .cake3/tmpHomePage.in0
-.cake3/tmpHomePage.in0: .fix-multy1
+.PHONY: .cake3/tmpHomePage.in1
+.cake3/tmpHomePage.in1: .fix-multy1
+.PHONY: ./lib/urweb-compet/Compet.exe
+./lib/urweb-compet/Compet.exe: .fix-multy1
+.PHONY: ./lib/urweb-compet/Compet.urp
+./lib/urweb-compet/Compet.urp: .fix-multy1
+.PHONY: .cake3/tmpCompet.in0
+.cake3/tmpCompet.in0: .fix-multy1
 .PHONY: ./HomePage.sql
 ./HomePage.sql: .fix-multy1
+.PHONY: ./lib/urweb-compet/Compet.sql
+./lib/urweb-compet/Compet.sql: .fix-multy1
 .INTERMEDIATE: .fix-multy1
 .fix-multy1: 
 	-mkdir .cake3
-	$(MAKE) -C ./lib/urweb-monad-pack -f Makefile test/XmlGen.urp
+	$(MAKE) -C ./lib/urweb-compet/lib/uru3/Bootstrap -f Makefile lib
+	$(MAKE) -C ./lib/urweb-monad-pack -f Makefile lib
+	$(MAKE) -C ./lib/urweb-monad-pack -f Makefile test/XmlGenDemo.urp
 	MAIN=1 $(MAKE) -f ./Makefile $(MAKECMDGOALS)
+.PHONY: autogen/Compet_css_c.o
+autogen/Compet_css_c.o: .fix-multy1
 
 endif
 .PHONY: clean
 clean: 
-	-rm ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp .cake3/tmpHomePage.in0
+	-rm ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp ./lib/urweb-compet/Compet.exe ./lib/urweb-compet/Compet.sql ./lib/urweb-compet/Compet.urp .cake3/tmpCompet.in0 .cake3/tmpHomePage.in1 autogen/Compet_css_c.o
 	-rm -rf .cake3
 
 endif
