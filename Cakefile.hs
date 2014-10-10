@@ -2,7 +2,8 @@ module Cakefile where
 
 import Development.Cake3
 import Development.Cake3.Ext.UrWeb
-import Cake_Compet hiding(main)
+import qualified Cake_Compet as Compet hiding(main)
+import qualified Cake_Callback as Callback hiding(main)
 import Cakefile_P
 
 instance IsString File where fromString = file
@@ -11,7 +12,9 @@ project = do
 
   let pn = "HomePage.urp"
 
-  cmp <- theapp
+  dc <- Callback.demo_callback
+
+  cmp <- Compet.theapp
     (library' (externalMakeTarget (file "lib/urweb-compet/lib/uru3/Bootstrap/lib.urp") "lib"))
     (library' (externalMakeTarget (file "lib/urweb-monad-pack/lib.urp") "lib"))
 
@@ -22,6 +25,7 @@ project = do
        "lib/urweb-monad-pack/test/XmlGenDemo.urp"
        "test/XmlGenDemo.urp")
     library' (return [urp $ toUrp cmp])
+    library' (return [urp $ toUrp dc])
     sql (pn.="sql")
     database ("dbname="++(takeBaseName pn))
     ur (pair "HomePage.ur")

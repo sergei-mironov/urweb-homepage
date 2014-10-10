@@ -12,6 +12,10 @@ fun main {} : transaction page =
       <h3>Urweb-compet</h3>
       <a link={Compet.main {}}>Main</a>
       </p>
+      <p>
+      <h3>Urweb-callback</h3>
+      <a link={Demo2.main {}}>Ping demo</a>
+      </p>
 
     </body>
   </xml>

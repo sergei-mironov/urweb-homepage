@@ -7,3 +7,6 @@
 [submodule "lib/urweb-compet"]
 	path = lib/urweb-compet
 	url = https://github.com/grwlf/urweb-compet
+[submodule "lib/urweb-callback"]
+	path = lib/urweb-callback
+	url = https://github.com/grwlf/urweb-callback
