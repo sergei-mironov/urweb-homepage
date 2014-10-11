@@ -22,81 +22,177 @@ dropdb: ./HomePage.db ./Makefile
 	psql -f ./HomePage.sql HomePage
 	touch ./HomePage.db
 ./HomePage.exe: .fix-multy1
-./HomePage.urp: ./HomePage.ur ./HomePage.urs ./Makefile ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-compet/Compet.urp ./lib/urweb-monad-pack/test/XmlGenDemo.urp .cake3/tmp_HomePage.in
-	cat .cake3/tmp_HomePage.in > ./HomePage.urp
-.cake3/tmp_HomePage.in: ./Makefile
-	-rm -rf .cake3/tmp_HomePage.in
-	echo 'debug' >> .cake3/tmp_HomePage.in
-	echo 'library ./lib/urweb-monad-pack/test/XmlGenDemo' >> .cake3/tmp_HomePage.in
-	echo 'library ./lib/urweb-compet/Compet' >> .cake3/tmp_HomePage.in
-	echo 'library ./lib/urweb-callback/demo/Demo2' >> .cake3/tmp_HomePage.in
-	echo 'sql ./HomePage.sql' >> .cake3/tmp_HomePage.in
-	echo 'database dbname=HomePage' >> .cake3/tmp_HomePage.in
-	echo '' >> .cake3/tmp_HomePage.in
-	echo './HomePage' >> .cake3/tmp_HomePage.in
+./HomePage.urp: ./HomePage.ur ./HomePage.urs ./Makefile ./lib/uru3/Bootstrap/test/B2.urp ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-compet/Compet.urp ./lib/urweb-monad-pack/test/XmlGenDemo.urp .cake3/tmp__HomePage_in
+	cat .cake3/tmp__HomePage_in > ./HomePage.urp
+.cake3/tmp__HomePage_in: ./Makefile
+	-rm -rf .cake3/tmp__HomePage_in
+	echo 'debug' >> .cake3/tmp__HomePage_in
+	echo 'library ./lib/urweb-monad-pack/test/XmlGenDemo' >> .cake3/tmp__HomePage_in
+	echo 'library ./lib/urweb-compet/Compet' >> .cake3/tmp__HomePage_in
+	echo 'library ./lib/urweb-callback/demo/Demo2' >> .cake3/tmp__HomePage_in
+	echo 'library ./lib/uru3/Bootstrap/test/B2' >> .cake3/tmp__HomePage_in
+	echo 'sql ./HomePage.sql' >> .cake3/tmp__HomePage_in
+	echo 'database dbname=HomePage' >> .cake3/tmp__HomePage_in
+	echo '' >> .cake3/tmp__HomePage_in
+	echo './HomePage' >> .cake3/tmp__HomePage_in
 ./lib/urweb-compet/Compet.exe: .fix-multy3
-./lib/urweb-compet/Compet.urp: ./Makefile ./lib/urweb-compet/lib/uru3/Bootstrap/lib.urp ./lib/urweb-compet/src/Compet.ur ./lib/urweb-compet/src/Compet.urs ./lib/urweb-compet/src/Prelude.ur ./lib/urweb-compet/src/XmlGen.ur ./lib/urweb-monad-pack/lib.urp .cake3/tmp_Compet.in autogen/Compet_css.ur autogen/Compet_css.urs autogen/Compet_css_c.h autogen/Compet_css_c.o
-	cat .cake3/tmp_Compet.in > ./lib/urweb-compet/Compet.urp
-.cake3/tmp_Compet.in: ./Makefile
-	-rm -rf .cake3/tmp_Compet.in
-	echo 'allow mime text/javascript' >> .cake3/tmp_Compet.in
-	echo 'allow mime text/css' >> .cake3/tmp_Compet.in
-	echo 'allow mime image/jpeg' >> .cake3/tmp_Compet.in
-	echo 'allow mime image/png' >> .cake3/tmp_Compet.in
-	echo 'allow mime image/gif' >> .cake3/tmp_Compet.in
-	echo 'allow mime application/octet-stream' >> .cake3/tmp_Compet.in
-	echo 'allow url /Compet/*' >> .cake3/tmp_Compet.in
-	echo 'database dbname=Compet' >> .cake3/tmp_Compet.in
-	echo 'safeGet Compet/main' >> .cake3/tmp_Compet.in
-	echo 'safeGet Compet/init' >> .cake3/tmp_Compet.in
-	echo 'sql ../.././lib/urweb-compet/Compet.sql' >> .cake3/tmp_Compet.in
-	echo 'library ../.././lib/urweb-compet/lib/uru3/Bootstrap' >> .cake3/tmp_Compet.in
-	echo 'library ../.././lib/urweb-monad-pack' >> .cake3/tmp_Compet.in
-	echo 'include ../../autogen/Compet_css_c.h' >> .cake3/tmp_Compet.in
-	echo 'link ../../autogen/Compet_css_c.o' >> .cake3/tmp_Compet.in
-	echo 'ffi ../../autogen/Compet_css_c' >> .cake3/tmp_Compet.in
-	echo 'ffi ../../autogen/Compet_css_js' >> .cake3/tmp_Compet.in
-	echo 'allow mime text/css' >> .cake3/tmp_Compet.in
-	echo 'safeGet Compet_css/blobpage' >> .cake3/tmp_Compet.in
-	echo 'safeGet Compet_css/blob' >> .cake3/tmp_Compet.in
-	echo '' >> .cake3/tmp_Compet.in
-	echo '$$/list' >> .cake3/tmp_Compet.in
-	echo '$$/string' >> .cake3/tmp_Compet.in
-	echo '../.././lib/urweb-compet/src/Prelude' >> .cake3/tmp_Compet.in
-	echo '../.././lib/urweb-compet/src/XmlGen' >> .cake3/tmp_Compet.in
-	echo '../../autogen/Compet_css' >> .cake3/tmp_Compet.in
-	echo '../.././lib/urweb-compet/src/Compet' >> .cake3/tmp_Compet.in
+./lib/urweb-compet/Compet.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/urweb-compet/src/Compet.ur ./lib/urweb-compet/src/Compet.urs ./lib/urweb-compet/src/Prelude.ur ./lib/urweb-compet/src/XmlGen.ur ./lib/urweb-monad-pack/lib.urp .cake3/tmp__liburweb-competCompet_in autogen/Compet_css.ur autogen/Compet_css.urs autogen/Compet_css_c.h autogen/Compet_css_c.o
+	cat .cake3/tmp__liburweb-competCompet_in > ./lib/urweb-compet/Compet.urp
+.cake3/tmp__liburweb-competCompet_in: ./Makefile
+	-rm -rf .cake3/tmp__liburweb-competCompet_in
+	echo 'allow mime text/javascript' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow mime image/jpeg' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow mime image/png' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow mime image/gif' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow mime application/octet-stream' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow url /Compet/*' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'database dbname=Compet' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'safeGet Compet/main' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'safeGet Compet/init' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'sql ../.././lib/urweb-compet/Compet.sql' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'library ../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'library ../.././lib/urweb-monad-pack' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'include ../../autogen/Compet_css_c.h' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'link ../../autogen/Compet_css_c.o' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'ffi ../../autogen/Compet_css_c' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'ffi ../../autogen/Compet_css_js' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'safeGet Compet_css/blobpage' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'safeGet Compet_css/blob' >> .cake3/tmp__liburweb-competCompet_in
+	echo '' >> .cake3/tmp__liburweb-competCompet_in
+	echo '$$/list' >> .cake3/tmp__liburweb-competCompet_in
+	echo '$$/string' >> .cake3/tmp__liburweb-competCompet_in
+	echo '../.././lib/urweb-compet/src/Prelude' >> .cake3/tmp__liburweb-competCompet_in
+	echo '../.././lib/urweb-compet/src/XmlGen' >> .cake3/tmp__liburweb-competCompet_in
+	echo '../../autogen/Compet_css' >> .cake3/tmp__liburweb-competCompet_in
+	echo '../.././lib/urweb-compet/src/Compet' >> .cake3/tmp__liburweb-competCompet_in
+./lib/uru3/Bootstrap/test/B2.exe: ./Makefile ./lib/uru3/Bootstrap/test/B2.urp $(call GUARD,URVERSION)
+	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B2
+./lib/uru3/Bootstrap/test/B2.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B2.ur ./lib/uru3/Bootstrap/test/B2.urs .cake3/tmp__liburu3BootstraptestB2_in autogen/B2_css.ur autogen/B2_css.urs autogen/B2_css_c.h autogen/B2_css_c.o autogen/Holder_js.ur autogen/Holder_js.urs autogen/Holder_js_c.h autogen/Holder_js_c.o
+	cat .cake3/tmp__liburu3BootstraptestB2_in > ./lib/uru3/Bootstrap/test/B2.urp
+.cake3/tmp__liburu3BootstraptestB2_in: ./Makefile
+	-rm -rf .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'allow url https://github.com/grwlf/*' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'allow url https://camo.githubusercontent.com/*' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'rewrite style B2/* [-]' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'include ../../../../autogen/B2_css_c.h' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'link ../../../../autogen/B2_css_c.o' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'ffi ../../../../autogen/B2_css_c' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'ffi ../../../../autogen/B2_css_js' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'safeGet B2_css/blobpage' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'safeGet B2_css/blob' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'include ../../../../autogen/Holder_js_c.h' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'link ../../../../autogen/Holder_js_c.o' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'ffi ../../../../autogen/Holder_js_c' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'ffi ../../../../autogen/Holder_js_js' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'allow mime text/javascript' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'safeGet Holder_js/blobpage' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'safeGet Holder_js/blob' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '../../../../autogen/B2_css' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '../../../../autogen/Holder_js' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '../../../.././lib/uru3/Bootstrap/test/B2' >> .cake3/tmp__liburu3BootstraptestB2_in
+./lib/uru3/Bootstrap/lib.urp: ./Makefile ./lib/uru3/Bootstrap/../JQuery/lib.urp ./lib/uru3/Bootstrap/../Uru/lib.urp ./lib/uru3/Bootstrap/Bootstrap.ur ./lib/uru3/Bootstrap/Bootstrap.urs .cake3/tmp__liburu3Bootstraplib_in autogen/Bootstrap_css.ur autogen/Bootstrap_css.urs autogen/Bootstrap_css_c.h autogen/Bootstrap_css_c.o autogen/Bootstrap_min_js.ur autogen/Bootstrap_min_js.urs autogen/Bootstrap_min_js_c.h autogen/Bootstrap_min_js_c.o autogen/Bootstrap_theme_css.ur autogen/Bootstrap_theme_css.urs autogen/Bootstrap_theme_css_c.h autogen/Bootstrap_theme_css_c.o autogen/Glyphicons_halflings_regular_eot.ur autogen/Glyphicons_halflings_regular_eot.urs autogen/Glyphicons_halflings_regular_eot_c.h autogen/Glyphicons_halflings_regular_eot_c.o autogen/Glyphicons_halflings_regular_svg.ur autogen/Glyphicons_halflings_regular_svg.urs autogen/Glyphicons_halflings_regular_svg_c.h autogen/Glyphicons_halflings_regular_svg_c.o autogen/Glyphicons_halflings_regular_ttf.ur autogen/Glyphicons_halflings_regular_ttf.urs autogen/Glyphicons_halflings_regular_ttf_c.h autogen/Glyphicons_halflings_regular_ttf_c.o autogen/Glyphicons_halflings_regular_woff.ur autogen/Glyphicons_halflings_regular_woff.urs autogen/Glyphicons_halflings_regular_woff_c.h autogen/Glyphicons_halflings_regular_woff_c.o
+	cat .cake3/tmp__liburu3Bootstraplib_in > ./lib/uru3/Bootstrap/lib.urp
+.cake3/tmp__liburu3Bootstraplib_in: ./Makefile
+	-rm -rf .cake3/tmp__liburu3Bootstraplib_in
+	echo 'rewrite style Bootstrap/bs3_table table' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'rewrite style Bootstrap/* [-]' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'library ../../.././lib/uru3/Bootstrap/../Uru' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'library ../../.././lib/uru3/Bootstrap/../JQuery' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'include ../../../autogen/Glyphicons_halflings_regular_eot_c.h' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'link ../../../autogen/Glyphicons_halflings_regular_eot_c.o' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Glyphicons_halflings_regular_eot_c' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Glyphicons_halflings_regular_eot_js' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'allow mime application/vnd.ms-fontobject' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Glyphicons_halflings_regular_eot/blobpage' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Glyphicons_halflings_regular_eot/blob' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'include ../../../autogen/Glyphicons_halflings_regular_svg_c.h' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'link ../../../autogen/Glyphicons_halflings_regular_svg_c.o' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Glyphicons_halflings_regular_svg_c' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Glyphicons_halflings_regular_svg_js' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'allow mime image/svg+xml' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Glyphicons_halflings_regular_svg/blobpage' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Glyphicons_halflings_regular_svg/blob' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'include ../../../autogen/Glyphicons_halflings_regular_ttf_c.h' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'link ../../../autogen/Glyphicons_halflings_regular_ttf_c.o' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Glyphicons_halflings_regular_ttf_c' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Glyphicons_halflings_regular_ttf_js' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'allow mime application/x-font-ttf' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Glyphicons_halflings_regular_ttf/blobpage' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Glyphicons_halflings_regular_ttf/blob' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'include ../../../autogen/Glyphicons_halflings_regular_woff_c.h' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'link ../../../autogen/Glyphicons_halflings_regular_woff_c.o' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Glyphicons_halflings_regular_woff_c' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Glyphicons_halflings_regular_woff_js' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'allow mime application/font-woff' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Glyphicons_halflings_regular_woff/blobpage' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Glyphicons_halflings_regular_woff/blob' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'include ../../../autogen/Bootstrap_css_c.h' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'link ../../../autogen/Bootstrap_css_c.o' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Bootstrap_css_c' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Bootstrap_css_js' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Bootstrap_css/blobpage' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Bootstrap_css/blob' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'include ../../../autogen/Bootstrap_theme_css_c.h' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'link ../../../autogen/Bootstrap_theme_css_c.o' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Bootstrap_theme_css_c' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Bootstrap_theme_css_js' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Bootstrap_theme_css/blobpage' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Bootstrap_theme_css/blob' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'include ../../../autogen/Bootstrap_min_js_c.h' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'link ../../../autogen/Bootstrap_min_js_c.o' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Bootstrap_min_js_c' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'ffi ../../../autogen/Bootstrap_min_js_js' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'allow mime text/javascript' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Bootstrap_min_js/blobpage' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo 'safeGet Bootstrap_min_js/blob' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo '' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo '../../../autogen/Glyphicons_halflings_regular_eot' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo '../../../autogen/Glyphicons_halflings_regular_svg' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo '../../../autogen/Glyphicons_halflings_regular_ttf' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo '../../../autogen/Glyphicons_halflings_regular_woff' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo '../../../autogen/Bootstrap_css' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo '../../../autogen/Bootstrap_theme_css' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo '../../../autogen/Bootstrap_min_js' >> .cake3/tmp__liburu3Bootstraplib_in
+	echo '../../.././lib/uru3/Bootstrap/Bootstrap' >> .cake3/tmp__liburu3Bootstraplib_in
 ./lib/urweb-callback/demo/Demo2.exe: .fix-multy2
-./lib/urweb-callback/demo/Demo2.urp: ./Makefile ./lib/urweb-callback/demo/Demo2.ur ./lib/urweb-callback/demo/Demo2.urs ./lib/urweb-callback/lib.urp .cake3/tmp_Demo2.in
-	cat .cake3/tmp_Demo2.in > ./lib/urweb-callback/demo/Demo2.urp
-.cake3/tmp_Demo2.in: ./Makefile
-	-rm -rf .cake3/tmp_Demo2.in
-	echo 'database dbname=Demo2' >> .cake3/tmp_Demo2.in
-	echo 'safeGet Demo2/main' >> .cake3/tmp_Demo2.in
-	echo 'safeGet Demo2/monitor' >> .cake3/tmp_Demo2.in
-	echo 'allow env PING' >> .cake3/tmp_Demo2.in
-	echo 'sql ../../.././lib/urweb-callback/demo/Demo2.sql' >> .cake3/tmp_Demo2.in
-	echo 'library ../../.././lib/urweb-callback' >> .cake3/tmp_Demo2.in
-	echo '' >> .cake3/tmp_Demo2.in
-	echo '$$/list' >> .cake3/tmp_Demo2.in
-	echo '$$/char' >> .cake3/tmp_Demo2.in
-	echo '$$/string' >> .cake3/tmp_Demo2.in
-	echo '../../.././lib/urweb-callback/demo/Demo2' >> .cake3/tmp_Demo2.in
-./lib/urweb-callback/lib.urp: ./Makefile ./lib/urweb-callback/Callback.ur ./lib/urweb-callback/Callback.urs ./lib/urweb-callback/CallbackFFI.h ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/CallbackNotify.ur ./lib/urweb-callback/CallbackNotify.urs ./lib/urweb-callback/CallbackNotify2.ur ./lib/urweb-callback/CallbackNotify2.urs .cake3/tmp_lib.in
-	cat .cake3/tmp_lib.in > ./lib/urweb-callback/lib.urp
-.cake3/tmp_lib.in: ./Makefile
-	-rm -rf .cake3/tmp_lib.in
-	echo 'ffi ../.././lib/urweb-callback/CallbackFFI' >> .cake3/tmp_lib.in
-	echo 'include ../.././lib/urweb-callback/CallbackFFI.h' >> .cake3/tmp_lib.in
-	echo 'link ../.././lib/urweb-callback/CallbackFFI.o' >> .cake3/tmp_lib.in
-	echo 'link -lstdc++' >> .cake3/tmp_lib.in
-	echo 'safeGet Callback/Default/callback' >> .cake3/tmp_lib.in
-	echo 'safeGet CallbackNotify/Default/C/callback' >> .cake3/tmp_lib.in
-	echo '' >> .cake3/tmp_lib.in
-	echo '$$/list' >> .cake3/tmp_lib.in
-	echo '../.././lib/urweb-callback/Callback' >> .cake3/tmp_lib.in
-	echo '../.././lib/urweb-callback/CallbackNotify' >> .cake3/tmp_lib.in
-	echo '../.././lib/urweb-callback/CallbackNotify2' >> .cake3/tmp_lib.in
+./lib/urweb-callback/demo/Demo2.urp: ./Makefile ./lib/urweb-callback/demo/Demo2.ur ./lib/urweb-callback/demo/Demo2.urs ./lib/urweb-callback/lib.urp .cake3/tmp__liburweb-callbackdemoDemo2_in
+	cat .cake3/tmp__liburweb-callbackdemoDemo2_in > ./lib/urweb-callback/demo/Demo2.urp
+.cake3/tmp__liburweb-callbackdemoDemo2_in: ./Makefile
+	-rm -rf .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo 'database dbname=Demo2' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo 'safeGet Demo2/main' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo 'safeGet Demo2/monitor' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo 'allow env PING' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo 'sql ../../.././lib/urweb-callback/demo/Demo2.sql' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo 'library ../../.././lib/urweb-callback' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo '' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo '$$/list' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo '$$/char' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo '$$/string' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+	echo '../../.././lib/urweb-callback/demo/Demo2' >> .cake3/tmp__liburweb-callbackdemoDemo2_in
+./lib/urweb-callback/lib.urp: ./Makefile ./lib/urweb-callback/Callback.ur ./lib/urweb-callback/Callback.urs ./lib/urweb-callback/CallbackFFI.h ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/CallbackNotify.ur ./lib/urweb-callback/CallbackNotify.urs ./lib/urweb-callback/CallbackNotify2.ur ./lib/urweb-callback/CallbackNotify2.urs .cake3/tmp__liburweb-callbacklib_in
+	cat .cake3/tmp__liburweb-callbacklib_in > ./lib/urweb-callback/lib.urp
+.cake3/tmp__liburweb-callbacklib_in: ./Makefile
+	-rm -rf .cake3/tmp__liburweb-callbacklib_in
+	echo 'ffi ../.././lib/urweb-callback/CallbackFFI' >> .cake3/tmp__liburweb-callbacklib_in
+	echo 'include ../.././lib/urweb-callback/CallbackFFI.h' >> .cake3/tmp__liburweb-callbacklib_in
+	echo 'link ../.././lib/urweb-callback/CallbackFFI.o' >> .cake3/tmp__liburweb-callbacklib_in
+	echo 'link -lstdc++' >> .cake3/tmp__liburweb-callbacklib_in
+	echo 'safeGet Callback/Default/callback' >> .cake3/tmp__liburweb-callbacklib_in
+	echo 'safeGet CallbackNotify/Default/C/callback' >> .cake3/tmp__liburweb-callbacklib_in
+	echo '' >> .cake3/tmp__liburweb-callbacklib_in
+	echo '$$/list' >> .cake3/tmp__liburweb-callbacklib_in
+	echo '../.././lib/urweb-callback/Callback' >> .cake3/tmp__liburweb-callbacklib_in
+	echo '../.././lib/urweb-callback/CallbackNotify' >> .cake3/tmp__liburweb-callbacklib_in
+	echo '../.././lib/urweb-callback/CallbackNotify2' >> .cake3/tmp__liburweb-callbacklib_in
 ./HomePage.sql: .fix-multy1
 ./lib/urweb-callback/CallbackFFI.o: ./Makefile ./lib/urweb-callback/CallbackFFI.cpp $(call GUARD,URCPP) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
 	$(URCPP) -c $(UR_CFLAGS) $(URINCL) -std=c++11 -o ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/CallbackFFI.cpp
@@ -111,8 +207,26 @@ dropdb: ./HomePage.db ./Makefile
 .INTERMEDIATE: .fix-multy3
 .fix-multy3: ./Makefile ./lib/urweb-compet/Compet.urp $(call GUARD,URVERSION)
 	urweb -dbms postgres ./lib/urweb-compet/Compet
+autogen/B2_css_c.o: ./Makefile autogen/B2_css_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/B2_css_c.o autogen/B2_css_c.c
+autogen/Bootstrap_css_c.o: ./Makefile autogen/Bootstrap_css_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Bootstrap_css_c.o autogen/Bootstrap_css_c.c
+autogen/Bootstrap_min_js_c.o: ./Makefile autogen/Bootstrap_min_js_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Bootstrap_min_js_c.o autogen/Bootstrap_min_js_c.c
+autogen/Bootstrap_theme_css_c.o: ./Makefile autogen/Bootstrap_theme_css_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Bootstrap_theme_css_c.o autogen/Bootstrap_theme_css_c.c
 autogen/Compet_css_c.o: ./Makefile autogen/Compet_css_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
 	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Compet_css_c.o autogen/Compet_css_c.c
+autogen/Glyphicons_halflings_regular_eot_c.o: ./Makefile autogen/Glyphicons_halflings_regular_eot_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Glyphicons_halflings_regular_eot_c.o autogen/Glyphicons_halflings_regular_eot_c.c
+autogen/Glyphicons_halflings_regular_svg_c.o: ./Makefile autogen/Glyphicons_halflings_regular_svg_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Glyphicons_halflings_regular_svg_c.o autogen/Glyphicons_halflings_regular_svg_c.c
+autogen/Glyphicons_halflings_regular_ttf_c.o: ./Makefile autogen/Glyphicons_halflings_regular_ttf_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Glyphicons_halflings_regular_ttf_c.o autogen/Glyphicons_halflings_regular_ttf_c.c
+autogen/Glyphicons_halflings_regular_woff_c.o: ./Makefile autogen/Glyphicons_halflings_regular_woff_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Glyphicons_halflings_regular_woff_c.o autogen/Glyphicons_halflings_regular_woff_c.c
+autogen/Holder_js_c.o: ./Makefile autogen/Holder_js_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/Holder_js_c.o autogen/Holder_js_c.c
 $(call GUARD,URCC):
 	rm -f .cake3/GUARD_URCC_*
 	touch $@
@@ -145,24 +259,34 @@ dropdb: .fix-multy1
 ./HomePage.exe: .fix-multy1
 .PHONY: ./HomePage.urp
 ./HomePage.urp: .fix-multy1
-.PHONY: .cake3/tmp_HomePage.in
-.cake3/tmp_HomePage.in: .fix-multy1
+.PHONY: .cake3/tmp__HomePage_in
+.cake3/tmp__HomePage_in: .fix-multy1
 .PHONY: ./lib/urweb-compet/Compet.exe
 ./lib/urweb-compet/Compet.exe: .fix-multy1
 .PHONY: ./lib/urweb-compet/Compet.urp
 ./lib/urweb-compet/Compet.urp: .fix-multy1
-.PHONY: .cake3/tmp_Compet.in
-.cake3/tmp_Compet.in: .fix-multy1
+.PHONY: .cake3/tmp__liburweb-competCompet_in
+.cake3/tmp__liburweb-competCompet_in: .fix-multy1
+.PHONY: ./lib/uru3/Bootstrap/test/B2.exe
+./lib/uru3/Bootstrap/test/B2.exe: .fix-multy1
+.PHONY: ./lib/uru3/Bootstrap/test/B2.urp
+./lib/uru3/Bootstrap/test/B2.urp: .fix-multy1
+.PHONY: .cake3/tmp__liburu3BootstraptestB2_in
+.cake3/tmp__liburu3BootstraptestB2_in: .fix-multy1
+.PHONY: ./lib/uru3/Bootstrap/lib.urp
+./lib/uru3/Bootstrap/lib.urp: .fix-multy1
+.PHONY: .cake3/tmp__liburu3Bootstraplib_in
+.cake3/tmp__liburu3Bootstraplib_in: .fix-multy1
 .PHONY: ./lib/urweb-callback/demo/Demo2.exe
 ./lib/urweb-callback/demo/Demo2.exe: .fix-multy1
 .PHONY: ./lib/urweb-callback/demo/Demo2.urp
 ./lib/urweb-callback/demo/Demo2.urp: .fix-multy1
-.PHONY: .cake3/tmp_Demo2.in
-.cake3/tmp_Demo2.in: .fix-multy1
+.PHONY: .cake3/tmp__liburweb-callbackdemoDemo2_in
+.cake3/tmp__liburweb-callbackdemoDemo2_in: .fix-multy1
 .PHONY: ./lib/urweb-callback/lib.urp
 ./lib/urweb-callback/lib.urp: .fix-multy1
-.PHONY: .cake3/tmp_lib.in
-.cake3/tmp_lib.in: .fix-multy1
+.PHONY: .cake3/tmp__liburweb-callbacklib_in
+.cake3/tmp__liburweb-callbacklib_in: .fix-multy1
 .PHONY: ./HomePage.sql
 ./HomePage.sql: .fix-multy1
 .PHONY: ./lib/urweb-callback/CallbackFFI.o
@@ -174,17 +298,37 @@ dropdb: .fix-multy1
 .INTERMEDIATE: .fix-multy1
 .fix-multy1: 
 	-mkdir .cake3
-	$(MAKE) -C ./lib/urweb-compet/lib/uru3/Bootstrap -f Makefile lib
+	$(MAKE) -C ./lib/uru3/Bootstrap/../Uru -f Makefile 
+	$(MAKE) -C ./lib/uru3/Bootstrap/../JQuery -f Makefile 
+	$(MAKE) -C ./lib/uru3/Bootstrap -f Makefile lib
 	$(MAKE) -C ./lib/urweb-monad-pack -f Makefile lib
 	$(MAKE) -C ./lib/urweb-monad-pack -f Makefile test/XmlGenDemo.urp
 	MAIN=1 $(MAKE) -f ./Makefile $(MAKECMDGOALS)
+.PHONY: autogen/B2_css_c.o
+autogen/B2_css_c.o: .fix-multy1
+.PHONY: autogen/Bootstrap_css_c.o
+autogen/Bootstrap_css_c.o: .fix-multy1
+.PHONY: autogen/Bootstrap_min_js_c.o
+autogen/Bootstrap_min_js_c.o: .fix-multy1
+.PHONY: autogen/Bootstrap_theme_css_c.o
+autogen/Bootstrap_theme_css_c.o: .fix-multy1
 .PHONY: autogen/Compet_css_c.o
 autogen/Compet_css_c.o: .fix-multy1
+.PHONY: autogen/Glyphicons_halflings_regular_eot_c.o
+autogen/Glyphicons_halflings_regular_eot_c.o: .fix-multy1
+.PHONY: autogen/Glyphicons_halflings_regular_svg_c.o
+autogen/Glyphicons_halflings_regular_svg_c.o: .fix-multy1
+.PHONY: autogen/Glyphicons_halflings_regular_ttf_c.o
+autogen/Glyphicons_halflings_regular_ttf_c.o: .fix-multy1
+.PHONY: autogen/Glyphicons_halflings_regular_woff_c.o
+autogen/Glyphicons_halflings_regular_woff_c.o: .fix-multy1
+.PHONY: autogen/Holder_js_c.o
+autogen/Holder_js_c.o: .fix-multy1
 
 endif
 .PHONY: clean
 clean: 
-	-rm ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/demo/Demo2.exe ./lib/urweb-callback/demo/Demo2.sql ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-callback/lib.urp ./lib/urweb-compet/Compet.exe ./lib/urweb-compet/Compet.sql ./lib/urweb-compet/Compet.urp .cake3/tmp_Compet.in .cake3/tmp_Demo2.in .cake3/tmp_HomePage.in .cake3/tmp_lib.in autogen/Compet_css_c.o
+	-rm ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B2.exe ./lib/uru3/Bootstrap/test/B2.urp ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/demo/Demo2.exe ./lib/urweb-callback/demo/Demo2.sql ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-callback/lib.urp ./lib/urweb-compet/Compet.exe ./lib/urweb-compet/Compet.sql ./lib/urweb-compet/Compet.urp .cake3/tmp__HomePage_in .cake3/tmp__liburu3Bootstraplib_in .cake3/tmp__liburu3BootstraptestB2_in .cake3/tmp__liburweb-callbackdemoDemo2_in .cake3/tmp__liburweb-callbacklib_in .cake3/tmp__liburweb-competCompet_in autogen/B2_css_c.o autogen/Bootstrap_css_c.o autogen/Bootstrap_min_js_c.o autogen/Bootstrap_theme_css_c.o autogen/Compet_css_c.o autogen/Glyphicons_halflings_regular_eot_c.o autogen/Glyphicons_halflings_regular_svg_c.o autogen/Glyphicons_halflings_regular_ttf_c.o autogen/Glyphicons_halflings_regular_woff_c.o autogen/Holder_js_c.o
 	-rm -rf .cake3
 
 endif

@@ -4,6 +4,7 @@ import Development.Cake3
 import Development.Cake3.Ext.UrWeb
 import qualified Cake_Compet as Compet hiding(main)
 import qualified Cake_Callback as Callback hiding(main)
+import qualified Cake_Bootstrap as Bootstrap hiding(main)
 import Cakefile_P
 
 instance IsString File where fromString = file
@@ -14,8 +15,10 @@ project = do
 
   dc <- Callback.demo_callback
 
+  b2 <- Bootstrap.demo2 [NoScan]
+
   cmp <- Compet.theapp
-    (library' (externalMakeTarget (file "lib/urweb-compet/lib/uru3/Bootstrap/lib.urp") "lib"))
+    (library' (externalMakeTarget (file "lib/uru3/Bootstrap/lib.urp") "lib"))
     (library' (externalMakeTarget (file "lib/urweb-monad-pack/lib.urp") "lib"))
 
   a <- uwapp "-dbms postgres" pn $ do
@@ -26,6 +29,7 @@ project = do
        "test/XmlGenDemo.urp")
     library' (return [urp $ toUrp cmp])
     library' (return [urp $ toUrp dc])
+    library' (return [urp $ toUrp b2])
     sql (pn.="sql")
     database ("dbname="++(takeBaseName pn))
     ur (pair "HomePage.ur")

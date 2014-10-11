@@ -16,6 +16,10 @@ fun main {} : transaction page =
       <h3>Urweb-callback</h3>
       <a link={Demo2.main {}}>Ping demo</a>
       </p>
+      <p>
+      <h3>Uru3</h3>
+      <a link={B2.main {}}>Bootstrap3 demo</a>
+      </p>
 
     </body>
   </xml>
