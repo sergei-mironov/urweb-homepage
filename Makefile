@@ -38,7 +38,7 @@ dropdb: ./HomePage.db ./Makefile
 	echo '' >> .cake3/tmp__HomePage_in
 	echo './HomePage' >> .cake3/tmp__HomePage_in
 ./lib/urweb-compet/Compet.exe: .fix-multy3
-./lib/urweb-compet/Compet.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/urweb-compet/src/Compet.ur ./lib/urweb-compet/src/Compet.urs ./lib/urweb-compet/src/Prelude.ur ./lib/urweb-compet/src/XmlGen.ur ./lib/urweb-monad-pack/lib.urp .cake3/tmp__liburweb-competCompet_in autogen/Compet_css.ur autogen/Compet_css.urs autogen/Compet_css_c.h autogen/Compet_css_c.o
+./lib/urweb-compet/Compet.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/urweb-compet/src/Compet.ur ./lib/urweb-compet/src/Compet.urs ./lib/urweb-compet/src/Prelude.ur ./lib/urweb-compet/src/StyleSoup.ur ./lib/urweb-compet/src/XmlGen.ur ./lib/urweb-monad-pack/lib.urp .cake3/tmp__liburweb-competCompet_in autogen/Compet_css.ur autogen/Compet_css.urs autogen/Compet_css_c.h autogen/Compet_css_c.o
 	cat .cake3/tmp__liburweb-competCompet_in > ./lib/urweb-compet/Compet.urp
 .cake3/tmp__liburweb-competCompet_in: ./Makefile
 	-rm -rf .cake3/tmp__liburweb-competCompet_in
@@ -49,6 +49,9 @@ dropdb: ./HomePage.db ./Makefile
 	echo 'allow mime image/gif' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'allow mime application/octet-stream' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'allow url /Compet/*' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow url http://github.com*' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow url http://impredicative.com*' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'allow url http://hit.msk.ru*' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'database dbname=Compet' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'safeGet Compet/main' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'safeGet Compet/init' >> .cake3/tmp__liburweb-competCompet_in
@@ -68,6 +71,7 @@ dropdb: ./HomePage.db ./Makefile
 	echo '../.././lib/urweb-compet/src/Prelude' >> .cake3/tmp__liburweb-competCompet_in
 	echo '../.././lib/urweb-compet/src/XmlGen' >> .cake3/tmp__liburweb-competCompet_in
 	echo '../../autogen/Compet_css' >> .cake3/tmp__liburweb-competCompet_in
+	echo '../.././lib/urweb-compet/src/StyleSoup' >> .cake3/tmp__liburweb-competCompet_in
 	echo '../.././lib/urweb-compet/src/Compet' >> .cake3/tmp__liburweb-competCompet_in
 ./lib/uru3/Bootstrap/test/B2.exe: ./Makefile ./lib/uru3/Bootstrap/test/B2.urp $(call GUARD,URVERSION)
 	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B2
