@@ -34,6 +34,7 @@ dropdb: ./HomePage.db ./Makefile
 	echo 'library ./lib/uru3/Bootstrap/test/B2' >> .cake3/tmp__HomePage_in
 	echo 'sql ./HomePage.sql' >> .cake3/tmp__HomePage_in
 	echo 'database dbname=HomePage' >> .cake3/tmp__HomePage_in
+	echo 'rewrite all HomePage/main' >> .cake3/tmp__HomePage_in
 	echo '' >> .cake3/tmp__HomePage_in
 	echo './HomePage' >> .cake3/tmp__HomePage_in
 ./lib/urweb-compet/Compet.exe: .fix-multy3

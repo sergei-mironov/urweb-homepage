@@ -1,7 +1,7 @@
 module Cakefile where
 
 import Development.Cake3
-import Development.Cake3.Ext.UrWeb
+import Development.Cake3.Ext.UrWeb as UW
 import qualified Cake_Compet as Compet hiding(main)
 import qualified Cake_Callback as Callback hiding(main)
 import qualified Cake_Bootstrap as Bootstrap hiding(main)
@@ -33,6 +33,7 @@ project = do
     library' (return $ map (urp . toUrp) [b1,b2])
     sql (pn.="sql")
     database ("dbname="++(takeBaseName pn))
+    rewrite UW.all "HomePage/main"
     ur (pair "HomePage.ur")
 
   db <- rule $ do
