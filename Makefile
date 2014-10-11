@@ -22,7 +22,7 @@ dropdb: ./HomePage.db ./Makefile
 	psql -f ./HomePage.sql HomePage
 	touch ./HomePage.db
 ./HomePage.exe: .fix-multy1
-./HomePage.urp: ./HomePage.ur ./HomePage.urs ./Makefile ./lib/uru3/Bootstrap/test/B2.urp ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-compet/Compet.urp ./lib/urweb-monad-pack/test/XmlGenDemo.urp .cake3/tmp__HomePage_in
+./HomePage.urp: ./HomePage.ur ./HomePage.urs ./Makefile ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.urp ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-compet/Compet.urp ./lib/urweb-monad-pack/test/XmlGenDemo.urp .cake3/tmp__HomePage_in
 	cat .cake3/tmp__HomePage_in > ./HomePage.urp
 .cake3/tmp__HomePage_in: ./Makefile
 	-rm -rf .cake3/tmp__HomePage_in
@@ -30,6 +30,7 @@ dropdb: ./HomePage.db ./Makefile
 	echo 'library ./lib/urweb-monad-pack/test/XmlGenDemo' >> .cake3/tmp__HomePage_in
 	echo 'library ./lib/urweb-compet/Compet' >> .cake3/tmp__HomePage_in
 	echo 'library ./lib/urweb-callback/demo/Demo2' >> .cake3/tmp__HomePage_in
+	echo 'library ./lib/uru3/Bootstrap/test/B1' >> .cake3/tmp__HomePage_in
 	echo 'library ./lib/uru3/Bootstrap/test/B2' >> .cake3/tmp__HomePage_in
 	echo 'sql ./HomePage.sql' >> .cake3/tmp__HomePage_in
 	echo 'database dbname=HomePage' >> .cake3/tmp__HomePage_in
@@ -162,6 +163,25 @@ dropdb: ./HomePage.db ./Makefile
 	echo '../../../autogen/Bootstrap_theme_css' >> .cake3/tmp__liburu3Bootstraplib_in
 	echo '../../../autogen/Bootstrap_min_js' >> .cake3/tmp__liburu3Bootstraplib_in
 	echo '../../.././lib/uru3/Bootstrap/Bootstrap' >> .cake3/tmp__liburu3Bootstraplib_in
+./lib/uru3/Bootstrap/test/B1.exe: ./Makefile ./lib/uru3/Bootstrap/test/B1.urp $(call GUARD,URVERSION)
+	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B1
+./lib/uru3/Bootstrap/test/B1.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B1.ur ./lib/uru3/Bootstrap/test/B1.urs .cake3/tmp__liburu3BootstraptestB1_in autogen/B1_css.ur autogen/B1_css.urs autogen/B1_css_c.h autogen/B1_css_c.o
+	cat .cake3/tmp__liburu3BootstraptestB1_in > ./lib/uru3/Bootstrap/test/B1.urp
+.cake3/tmp__liburu3BootstraptestB1_in: ./Makefile
+	-rm -rf .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'rewrite style B1/* [-]' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'include ../../../../autogen/B1_css_c.h' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'link ../../../../autogen/B1_css_c.o' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'ffi ../../../../autogen/B1_css_c' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'ffi ../../../../autogen/B1_css_js' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'safeGet B1_css/blobpage' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'safeGet B1_css/blob' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo '' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo '../../../../autogen/B1_css' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo '../../../.././lib/uru3/Bootstrap/test/B1' >> .cake3/tmp__liburu3BootstraptestB1_in
 ./lib/urweb-callback/demo/Demo2.exe: .fix-multy2
 ./lib/urweb-callback/demo/Demo2.urp: ./Makefile ./lib/urweb-callback/demo/Demo2.ur ./lib/urweb-callback/demo/Demo2.urs ./lib/urweb-callback/lib.urp .cake3/tmp__liburweb-callbackdemoDemo2_in
 	cat .cake3/tmp__liburweb-callbackdemoDemo2_in > ./lib/urweb-callback/demo/Demo2.urp
@@ -207,6 +227,8 @@ dropdb: ./HomePage.db ./Makefile
 .INTERMEDIATE: .fix-multy3
 .fix-multy3: ./Makefile ./lib/urweb-compet/Compet.urp $(call GUARD,URVERSION)
 	urweb -dbms postgres ./lib/urweb-compet/Compet
+autogen/B1_css_c.o: ./Makefile autogen/B1_css_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
+	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/B1_css_c.o autogen/B1_css_c.c
 autogen/B2_css_c.o: ./Makefile autogen/B2_css_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
 	$(URCC) -c $(URINCL) $(UR_CFLAGS)  -o autogen/B2_css_c.o autogen/B2_css_c.c
 autogen/Bootstrap_css_c.o: ./Makefile autogen/Bootstrap_css_c.c $(call GUARD,URCC) $(call GUARD,URINCL) $(call GUARD,UR_CFLAGS)
@@ -277,6 +299,12 @@ dropdb: .fix-multy1
 ./lib/uru3/Bootstrap/lib.urp: .fix-multy1
 .PHONY: .cake3/tmp__liburu3Bootstraplib_in
 .cake3/tmp__liburu3Bootstraplib_in: .fix-multy1
+.PHONY: ./lib/uru3/Bootstrap/test/B1.exe
+./lib/uru3/Bootstrap/test/B1.exe: .fix-multy1
+.PHONY: ./lib/uru3/Bootstrap/test/B1.urp
+./lib/uru3/Bootstrap/test/B1.urp: .fix-multy1
+.PHONY: .cake3/tmp__liburu3BootstraptestB1_in
+.cake3/tmp__liburu3BootstraptestB1_in: .fix-multy1
 .PHONY: ./lib/urweb-callback/demo/Demo2.exe
 ./lib/urweb-callback/demo/Demo2.exe: .fix-multy1
 .PHONY: ./lib/urweb-callback/demo/Demo2.urp
@@ -300,10 +328,14 @@ dropdb: .fix-multy1
 	-mkdir .cake3
 	$(MAKE) -C ./lib/uru3/Bootstrap/../Uru -f Makefile 
 	$(MAKE) -C ./lib/uru3/Bootstrap/../JQuery -f Makefile 
+	$(MAKE) -C ./lib/uru3/Bootstrap/../Uru -f Makefile 
+	$(MAKE) -C ./lib/uru3/Bootstrap/../JQuery -f Makefile 
 	$(MAKE) -C ./lib/uru3/Bootstrap -f Makefile lib
 	$(MAKE) -C ./lib/urweb-monad-pack -f Makefile lib
 	$(MAKE) -C ./lib/urweb-monad-pack -f Makefile test/XmlGenDemo.urp
 	MAIN=1 $(MAKE) -f ./Makefile $(MAKECMDGOALS)
+.PHONY: autogen/B1_css_c.o
+autogen/B1_css_c.o: .fix-multy1
 .PHONY: autogen/B2_css_c.o
 autogen/B2_css_c.o: .fix-multy1
 .PHONY: autogen/Bootstrap_css_c.o
@@ -328,7 +360,7 @@ autogen/Holder_js_c.o: .fix-multy1
 endif
 .PHONY: clean
 clean: 
-	-rm ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B2.exe ./lib/uru3/Bootstrap/test/B2.urp ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/demo/Demo2.exe ./lib/urweb-callback/demo/Demo2.sql ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-callback/lib.urp ./lib/urweb-compet/Compet.exe ./lib/urweb-compet/Compet.sql ./lib/urweb-compet/Compet.urp .cake3/tmp__HomePage_in .cake3/tmp__liburu3Bootstraplib_in .cake3/tmp__liburu3BootstraptestB2_in .cake3/tmp__liburweb-callbackdemoDemo2_in .cake3/tmp__liburweb-callbacklib_in .cake3/tmp__liburweb-competCompet_in autogen/B2_css_c.o autogen/Bootstrap_css_c.o autogen/Bootstrap_min_js_c.o autogen/Bootstrap_theme_css_c.o autogen/Compet_css_c.o autogen/Glyphicons_halflings_regular_eot_c.o autogen/Glyphicons_halflings_regular_svg_c.o autogen/Glyphicons_halflings_regular_ttf_c.o autogen/Glyphicons_halflings_regular_woff_c.o autogen/Holder_js_c.o
+	-rm ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B1.exe ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.exe ./lib/uru3/Bootstrap/test/B2.urp ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/demo/Demo2.exe ./lib/urweb-callback/demo/Demo2.sql ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-callback/lib.urp ./lib/urweb-compet/Compet.exe ./lib/urweb-compet/Compet.sql ./lib/urweb-compet/Compet.urp .cake3/tmp__HomePage_in .cake3/tmp__liburu3Bootstraplib_in .cake3/tmp__liburu3BootstraptestB1_in .cake3/tmp__liburu3BootstraptestB2_in .cake3/tmp__liburweb-callbackdemoDemo2_in .cake3/tmp__liburweb-callbacklib_in .cake3/tmp__liburweb-competCompet_in autogen/B1_css_c.o autogen/B2_css_c.o autogen/Bootstrap_css_c.o autogen/Bootstrap_min_js_c.o autogen/Bootstrap_theme_css_c.o autogen/Compet_css_c.o autogen/Glyphicons_halflings_regular_eot_c.o autogen/Glyphicons_halflings_regular_svg_c.o autogen/Glyphicons_halflings_regular_ttf_c.o autogen/Glyphicons_halflings_regular_woff_c.o autogen/Holder_js_c.o
 	-rm -rf .cake3
 
 endif

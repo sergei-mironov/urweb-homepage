@@ -15,6 +15,7 @@ project = do
 
   dc <- Callback.demo_callback
 
+  b1 <- Bootstrap.demo1 [NoScan]
   b2 <- Bootstrap.demo2 [NoScan]
 
   cmp <- Compet.theapp
@@ -29,7 +30,7 @@ project = do
        "test/XmlGenDemo.urp")
     library' (return [urp $ toUrp cmp])
     library' (return [urp $ toUrp dc])
-    library' (return [urp $ toUrp b2])
+    library' (return $ map (urp . toUrp) [b1,b2])
     sql (pn.="sql")
     database ("dbname="++(takeBaseName pn))
     ur (pair "HomePage.ur")
