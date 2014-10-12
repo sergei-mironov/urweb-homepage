@@ -17,6 +17,7 @@ project = do
 
   b1 <- Bootstrap.demo1 [NoScan]
   b2 <- Bootstrap.demo2 [NoScan]
+  b3 <- Bootstrap.demo3 [NoScan]
 
   cmp <- Compet.theapp
     (library' (externalMakeTarget (file "lib/uru3/Bootstrap/lib.urp") "lib"))
@@ -30,7 +31,7 @@ project = do
        "test/XmlGenDemo.urp")
     library' (return [urp $ toUrp cmp])
     library' (return [urp $ toUrp dc])
-    library' (return $ map (urp . toUrp) [b1,b2])
+    library' (return $ map (urp . toUrp) [b1,b2,b3])
     sql (pn.="sql")
     database ("dbname="++(takeBaseName pn))
     rewrite UW.all "HomePage/main"

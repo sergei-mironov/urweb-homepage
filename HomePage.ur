@@ -19,9 +19,10 @@ fun main {} : transaction page =
       <a link={Demo2.main {}}>Ping demo</a>
       </p>
       <p>
-      <h3>Uru (Bootstrap3)</h3>
-      <a link={B1.main {}}>Demo1</a>
-      <a link={B2.main {}}>Demo2</a>
+      <h3>Uru/Bootstrap</h3>
+      <a link={B3_Login.main {}}>Login demo</a>
+      <a link={B1.main {}}>Theme demo</a>
+      <a link={B2.main {}}>Controls demo</a>
       </p>
 
     </body>
