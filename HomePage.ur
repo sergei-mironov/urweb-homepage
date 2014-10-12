@@ -10,8 +10,8 @@ fun main {} : transaction page =
       </p>
       <p>
       <h3>Compet</h3>
-      The archery competitions helper in it's early development state. In this
-      application XmlGen monad is used for the HTML generation.
+      The archery competitions helper in it's early development state. In
+      this application XmlGen monad is used for the HTML generation.
       <a link={Compet.main {}}>Compet main page</a>
       </p>
       <p>
@@ -20,9 +20,9 @@ fun main {} : transaction page =
       </p>
       <p>
       <h3>Uru/Bootstrap</h3>
-      <a link={B3_Login.main {}}>Login demo</a>
-      <a link={B1.main {}}>Theme demo</a>
-      <a link={B2.main {}}>Controls demo</a>
+      <a link={B1.main {}}>Starter template demo</a>
+      <a link={B2.main {}}>Bootstrap theme demo</a>
+      <a link={B3_Login.main {}}>Login page demo</a>
       </p>
 
     </body>
