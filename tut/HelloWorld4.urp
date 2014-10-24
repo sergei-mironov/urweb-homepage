@@ -1,0 +1,4 @@
+sql ./HelloWorld4.sql
+database dbname=HelloWorld4
+
+HelloWorld4
