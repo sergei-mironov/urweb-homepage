@@ -1,5 +1,9 @@
 val t : sql_table [Id=int, Nam=string] [] = ???
-(* val t : sql_table [Id=int, Nam=string] [] = error <xml/>  ==typechecks== *)
+
+(*
+==typechecks==
+val t : sql_table [Id=int, Nam=string] [] = error <xml/>
+*)
 
 fun hello () : transaction page =
   return <xml>
