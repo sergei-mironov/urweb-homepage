@@ -1,0 +1,20 @@
+# HG changeset patch
+# User Sergey Mironov <grrwlf@gmail.com>
+# Date 1414332427 0
+#      Sun Oct 26 14:07:07 2014 +0000
+# Node ID f0be972db3bd665762d3384d62f0c0caa4414471
+# Parent  0356632d48148fd55a893217d47e06df73279d35
+Add 'download' attribute to <a/>, part of HTML5
+
+diff --git a/lib/ur/basis.urs b/lib/ur/basis.urs
+--- a/lib/ur/basis.urs
++++ b/lib/ur/basis.urs
+@@ -914,7 +914,7 @@
+ val wbr : bodyTag boxAttrs
+ val bdi : bodyTag boxAttrs
+ 
+-val a : bodyTag ([Link = transaction page, Href = url, Target = string, Rel = string] ++ boxAttrs)
++val a : bodyTag ([Link = transaction page, Href = url, Target = string, Rel = string, Download = string] ++ boxAttrs)
+ 
+ val img : bodyTag ([Alt = string, Src = url, Width = int, Height = int,
+                     Onabort = transaction unit, Onerror = transaction unit,
