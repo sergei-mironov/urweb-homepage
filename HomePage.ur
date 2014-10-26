@@ -2,8 +2,11 @@
 fun main {} : transaction page =
   return
   <xml>
-    <head/>
+    <head>
+      <title>Sergey Mironov</title>
+    </head>
     <body>
+      <h2>Ur/Web</h2>
       <p>
       <h3>Urweb-monad-pack</h3>
       <a link={XmlGenDemo.viewm {}}>XmlGen demo</a>
@@ -23,6 +26,11 @@ fun main {} : transaction page =
       <a link={B1.main {}}>Starter template demo</a>
       <a link={B2.main {}}>Bootstrap theme demo</a>
       <a link={B3_Login.main {}}>Login page demo</a>
+      </p>
+
+      <h2>Slides and materials</h2>
+      <p>
+      <a link={Slides_Minsk_2014_pdf.blobpage {}} download="UrWeb-Minsk-2014.pdf">Minsk, October 25, 2014</a>
       </p>
 
     </body>

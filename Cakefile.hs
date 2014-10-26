@@ -35,6 +35,7 @@ project = do
     sql (pn.="sql")
     database ("dbname="++(takeBaseName pn))
     rewrite UW.all "HomePage/main"
+    bin (file "tut/Slides-Minsk-2014.pdf") []
     ur (pair "HomePage.ur")
 
   db <- rule $ do
