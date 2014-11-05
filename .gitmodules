@@ -10,3 +10,6 @@
 [submodule "lib/urweb-callback"]
 	path = lib/urweb-callback
 	url = https://github.com/grwlf/urweb-callback
+[submodule "lib/urweb-prelude"]
+	path = lib/urweb-prelude
+	url = https://github.com/grwlf/urweb-prelude
