@@ -47,7 +47,7 @@ dropdb: ./HomePage.db ./Makefile
 	echo 'autogen/Slides_Minsk_2014_pdf' >> .cake3/tmp__HomePage_in
 	echo './HomePage' >> .cake3/tmp__HomePage_in
 ./lib/urweb-compet/Compet.exe: .fix-multy3
-./lib/urweb-compet/Compet.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/urweb-compet/src/Compet.ur ./lib/urweb-compet/src/Compet.urs ./lib/urweb-compet/src/Prelude.ur ./lib/urweb-compet/src/StyleSoup.ur ./lib/urweb-compet/src/XmlGen.ur ./lib/urweb-monad-pack/lib.urp .cake3/tmp__liburweb-competCompet_in autogen/Compet_css.ur autogen/Compet_css.urs autogen/Compet_css_c.h autogen/Compet_css_c.o
+./lib/urweb-compet/Compet.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/urweb-compet/src/Compet.ur ./lib/urweb-compet/src/Compet.urs ./lib/urweb-compet/src/DragTable.ur ./lib/urweb-compet/src/StyleSoup.ur ./lib/urweb-compet/src/XmlGen.ur ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp .cake3/tmp__liburweb-competCompet_in autogen/Compet_css.ur autogen/Compet_css.urs autogen/Compet_css_c.h autogen/Compet_css_c.o
 	cat .cake3/tmp__liburweb-competCompet_in > ./lib/urweb-compet/Compet.urp
 .cake3/tmp__liburweb-competCompet_in: ./Makefile
 	-rm -rf .cake3/tmp__liburweb-competCompet_in
@@ -67,6 +67,7 @@ dropdb: ./HomePage.db ./Makefile
 	echo 'sql ../.././lib/urweb-compet/Compet.sql' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'library ../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'library ../.././lib/urweb-monad-pack' >> .cake3/tmp__liburweb-competCompet_in
+	echo 'library ../.././lib/urweb-prelude' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'include ../../autogen/Compet_css_c.h' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'link ../../autogen/Compet_css_c.o' >> .cake3/tmp__liburweb-competCompet_in
 	echo 'ffi ../../autogen/Compet_css_c' >> .cake3/tmp__liburweb-competCompet_in
@@ -77,11 +78,19 @@ dropdb: ./HomePage.db ./Makefile
 	echo '' >> .cake3/tmp__liburweb-competCompet_in
 	echo '$$/list' >> .cake3/tmp__liburweb-competCompet_in
 	echo '$$/string' >> .cake3/tmp__liburweb-competCompet_in
-	echo '../.././lib/urweb-compet/src/Prelude' >> .cake3/tmp__liburweb-competCompet_in
+	echo '$$/option' >> .cake3/tmp__liburweb-competCompet_in
 	echo '../.././lib/urweb-compet/src/XmlGen' >> .cake3/tmp__liburweb-competCompet_in
 	echo '../../autogen/Compet_css' >> .cake3/tmp__liburweb-competCompet_in
 	echo '../.././lib/urweb-compet/src/StyleSoup' >> .cake3/tmp__liburweb-competCompet_in
+	echo '../.././lib/urweb-compet/src/DragTable' >> .cake3/tmp__liburweb-competCompet_in
 	echo '../.././lib/urweb-compet/src/Compet' >> .cake3/tmp__liburweb-competCompet_in
+./lib/urweb-prelude/lib.urp: ./Makefile ./lib/urweb-prelude/src/Prelude.ur .cake3/tmp__liburweb-preludelib_in
+	cat .cake3/tmp__liburweb-preludelib_in > ./lib/urweb-prelude/lib.urp
+.cake3/tmp__liburweb-preludelib_in: ./Makefile
+	-rm -rf .cake3/tmp__liburweb-preludelib_in
+	echo '' >> .cake3/tmp__liburweb-preludelib_in
+	echo '$$/list' >> .cake3/tmp__liburweb-preludelib_in
+	echo '../.././lib/urweb-prelude/src/Prelude' >> .cake3/tmp__liburweb-preludelib_in
 ./lib/uru3/Bootstrap/test/B3_Login.exe: ./Makefile ./lib/uru3/Bootstrap/test/B3_Login.urp $(call GUARD,URVERSION)
 	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B3_Login
 ./lib/uru3/Bootstrap/test/B3_Login.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B3_Login.ur ./lib/uru3/Bootstrap/test/B3_Login.urs .cake3/tmp__liburu3BootstraptestB3_Login_in autogen/B3_Login_css.ur autogen/B3_Login_css.urs autogen/B3_Login_css_c.h autogen/B3_Login_css_c.o
@@ -339,6 +348,10 @@ dropdb: .fix-multy1
 ./lib/urweb-compet/Compet.urp: .fix-multy1
 .PHONY: .cake3/tmp__liburweb-competCompet_in
 .cake3/tmp__liburweb-competCompet_in: .fix-multy1
+.PHONY: ./lib/urweb-prelude/lib.urp
+./lib/urweb-prelude/lib.urp: .fix-multy1
+.PHONY: .cake3/tmp__liburweb-preludelib_in
+.cake3/tmp__liburweb-preludelib_in: .fix-multy1
 .PHONY: ./lib/uru3/Bootstrap/test/B3_Login.exe
 ./lib/uru3/Bootstrap/test/B3_Login.exe: .fix-multy1
 .PHONY: ./lib/uru3/Bootstrap/test/B3_Login.urp
@@ -424,7 +437,7 @@ autogen/Slides_Minsk_2014_pdf_c.o: .fix-multy1
 endif
 .PHONY: clean
 clean: 
-	-rm ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B1.exe ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.exe ./lib/uru3/Bootstrap/test/B2.urp ./lib/uru3/Bootstrap/test/B3_Login.exe ./lib/uru3/Bootstrap/test/B3_Login.urp ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/demo/Demo2.exe ./lib/urweb-callback/demo/Demo2.sql ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-callback/lib.urp ./lib/urweb-compet/Compet.exe ./lib/urweb-compet/Compet.sql ./lib/urweb-compet/Compet.urp .cake3/tmp__HomePage_in .cake3/tmp__liburu3Bootstraplib_in .cake3/tmp__liburu3BootstraptestB1_in .cake3/tmp__liburu3BootstraptestB2_in .cake3/tmp__liburu3BootstraptestB3_Login_in .cake3/tmp__liburweb-callbackdemoDemo2_in .cake3/tmp__liburweb-callbacklib_in .cake3/tmp__liburweb-competCompet_in autogen/B1_css_c.o autogen/B2_css_c.o autogen/B3_Login_css_c.o autogen/Bootstrap_css_c.o autogen/Bootstrap_min_js_c.o autogen/Bootstrap_theme_css_c.o autogen/Compet_css_c.o autogen/FormSignin_css_c.o autogen/Glyphicons_halflings_regular_eot_c.o autogen/Glyphicons_halflings_regular_svg_c.o autogen/Glyphicons_halflings_regular_ttf_c.o autogen/Glyphicons_halflings_regular_woff_c.o autogen/Holder_js_c.o autogen/Slides_Minsk_2014_pdf_c.o
+	-rm ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B1.exe ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.exe ./lib/uru3/Bootstrap/test/B2.urp ./lib/uru3/Bootstrap/test/B3_Login.exe ./lib/uru3/Bootstrap/test/B3_Login.urp ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/demo/Demo2.exe ./lib/urweb-callback/demo/Demo2.sql ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-callback/lib.urp ./lib/urweb-compet/Compet.exe ./lib/urweb-compet/Compet.sql ./lib/urweb-compet/Compet.urp ./lib/urweb-prelude/lib.urp .cake3/tmp__HomePage_in .cake3/tmp__liburu3Bootstraplib_in .cake3/tmp__liburu3BootstraptestB1_in .cake3/tmp__liburu3BootstraptestB2_in .cake3/tmp__liburu3BootstraptestB3_Login_in .cake3/tmp__liburweb-callbackdemoDemo2_in .cake3/tmp__liburweb-callbacklib_in .cake3/tmp__liburweb-competCompet_in .cake3/tmp__liburweb-preludelib_in autogen/B1_css_c.o autogen/B2_css_c.o autogen/B3_Login_css_c.o autogen/Bootstrap_css_c.o autogen/Bootstrap_min_js_c.o autogen/Bootstrap_theme_css_c.o autogen/Compet_css_c.o autogen/FormSignin_css_c.o autogen/Glyphicons_halflings_regular_eot_c.o autogen/Glyphicons_halflings_regular_svg_c.o autogen/Glyphicons_halflings_regular_ttf_c.o autogen/Glyphicons_halflings_regular_woff_c.o autogen/Holder_js_c.o autogen/Slides_Minsk_2014_pdf_c.o
 	-rm -rf .cake3
 
 endif

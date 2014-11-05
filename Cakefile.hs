@@ -5,6 +5,7 @@ import Development.Cake3.Ext.UrWeb as UW
 import qualified Cake_Compet as Compet hiding(main)
 import qualified Cake_Callback as Callback hiding(main)
 import qualified Cake_Bootstrap as Bootstrap hiding(main)
+import qualified Cake_Prelude as Prelude hiding(main)
 import Cakefile_P
 
 instance IsString File where fromString = file
@@ -19,7 +20,10 @@ project = do
   b2 <- Bootstrap.demo2 [NoScan]
   b3 <- Bootstrap.demo3 [NoScan]
 
+  p <- Prelude.thelib
+
   cmp <- Compet.theapp
+    (library p)
     (library' (externalMakeTarget (file "lib/uru3/Bootstrap/lib.urp") "lib"))
     (library' (externalMakeTarget (file "lib/urweb-monad-pack/lib.urp") "lib"))
 
