@@ -26,6 +26,8 @@ fun main {} : transaction page =
       <a link={B1.main {}}>Starter template demo</a>
       <a link={B2.main {}}>Bootstrap theme demo</a>
       <a link={B3_Login.main {}}>Login page demo</a>
+      <a link={Modal.main {}}>Modal form demo</a>
+      <a link={Narrow.main {}}>Narrow jumbotron demo</a>
       </p>
 
       <h2>Slides and materials</h2>
