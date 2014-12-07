@@ -112,6 +112,93 @@ dropdb: ./HomePage.db ./Makefile
 	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestNarrow_in
 	echo '../../../../autogen/Narrow_css' >> .cake3/tmp__liburu3BootstraptestNarrow_in
 	echo '../../../.././lib/uru3/Bootstrap/test/Narrow' >> .cake3/tmp__liburu3BootstraptestNarrow_in
+./lib/uru3/Bootstrap/test/Modal.exe: ./Makefile ./lib/uru3/Bootstrap/test/Modal.urp $(call GUARD,URVERSION)
+	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/Modal
+./lib/uru3/Bootstrap/test/Modal.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/Modal.ur .cake3/tmp__liburu3BootstraptestModal_in autogen/Modal_css.ur autogen/Modal_css.urs autogen/Modal_css_c.h autogen/Modal_css_c.o
+	cat .cake3/tmp__liburu3BootstraptestModal_in > ./lib/uru3/Bootstrap/test/Modal.urp
+.cake3/tmp__liburu3BootstraptestModal_in: ./Makefile
+	-rm -rf .cake3/tmp__liburu3BootstraptestModal_in
+	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo 'include ../../../../autogen/Modal_css_c.h' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo 'link ../../../../autogen/Modal_css_c.o' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo 'ffi ../../../../autogen/Modal_css_c' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo 'ffi ../../../../autogen/Modal_css_js' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo 'safeGet Modal_css/blobpage' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo 'safeGet Modal_css/blob' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo '' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo '../../../../autogen/Modal_css' >> .cake3/tmp__liburu3BootstraptestModal_in
+	echo '../../../.././lib/uru3/Bootstrap/test/Modal' >> .cake3/tmp__liburu3BootstraptestModal_in
+./lib/uru3/Bootstrap/test/B3_Login.exe: ./Makefile ./lib/uru3/Bootstrap/test/B3_Login.urp $(call GUARD,URVERSION)
+	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B3_Login
+./lib/uru3/Bootstrap/test/B3_Login.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B3_Login.ur .cake3/tmp__liburu3BootstraptestB3_Login_in autogen/B3_Login_css.ur autogen/B3_Login_css.urs autogen/B3_Login_css_c.h autogen/B3_Login_css_c.o
+	cat .cake3/tmp__liburu3BootstraptestB3_Login_in > ./lib/uru3/Bootstrap/test/B3_Login.urp
+.cake3/tmp__liburu3BootstraptestB3_Login_in: ./Makefile
+	-rm -rf .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'include ../../../../autogen/B3_Login_css_c.h' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'link ../../../../autogen/B3_Login_css_c.o' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'ffi ../../../../autogen/B3_Login_css_c' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'ffi ../../../../autogen/B3_Login_css_js' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'safeGet B3_Login_css/blobpage' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'safeGet B3_Login_css/blob' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'allow url https://github.com/grwlf/*' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'allow url https://camo.githubusercontent.com/*' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo 'rewrite style B3_Login/* [-]' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo '' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo '../../../../autogen/B3_Login_css' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+	echo '../../../.././lib/uru3/Bootstrap/test/B3_Login' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
+./lib/uru3/Bootstrap/test/B2.exe: ./Makefile ./lib/uru3/Bootstrap/test/B2.urp $(call GUARD,URVERSION)
+	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B2
+./lib/uru3/Bootstrap/test/B2.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B2.ur .cake3/tmp__liburu3BootstraptestB2_in autogen/B2_css.ur autogen/B2_css.urs autogen/B2_css_c.h autogen/B2_css_c.o autogen/Holder_js.ur autogen/Holder_js.urs autogen/Holder_js_c.h autogen/Holder_js_c.o
+	cat .cake3/tmp__liburu3BootstraptestB2_in > ./lib/uru3/Bootstrap/test/B2.urp
+.cake3/tmp__liburu3BootstraptestB2_in: ./Makefile
+	-rm -rf .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'include ../../../../autogen/B2_css_c.h' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'link ../../../../autogen/B2_css_c.o' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'ffi ../../../../autogen/B2_css_c' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'ffi ../../../../autogen/B2_css_js' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'safeGet B2_css/blobpage' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'safeGet B2_css/blob' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'allow url https://github.com/grwlf/*' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'allow url https://camo.githubusercontent.com/*' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'rewrite style B2/* [-]' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'include ../../../../autogen/Holder_js_c.h' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'link ../../../../autogen/Holder_js_c.o' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'ffi ../../../../autogen/Holder_js_c' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'ffi ../../../../autogen/Holder_js_js' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'allow mime text/javascript' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'safeGet Holder_js/blobpage' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo 'safeGet Holder_js/blob' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '../../../../autogen/B2_css' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '../../../../autogen/Holder_js' >> .cake3/tmp__liburu3BootstraptestB2_in
+	echo '../../../.././lib/uru3/Bootstrap/test/B2' >> .cake3/tmp__liburu3BootstraptestB2_in
+./lib/uru3/Bootstrap/test/B1.exe: ./Makefile ./lib/uru3/Bootstrap/test/B1.urp $(call GUARD,URVERSION)
+	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B1
+./lib/uru3/Bootstrap/test/B1.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B1.ur .cake3/tmp__liburu3BootstraptestB1_in autogen/B1_css.ur autogen/B1_css.urs autogen/B1_css_c.h autogen/B1_css_c.o
+	cat .cake3/tmp__liburu3BootstraptestB1_in > ./lib/uru3/Bootstrap/test/B1.urp
+.cake3/tmp__liburu3BootstraptestB1_in: ./Makefile
+	-rm -rf .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'include ../../../../autogen/B1_css_c.h' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'link ../../../../autogen/B1_css_c.o' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'ffi ../../../../autogen/B1_css_c' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'ffi ../../../../autogen/B1_css_js' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'safeGet B1_css/blobpage' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'safeGet B1_css/blob' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo 'rewrite style B1/* [-]' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo '' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo '../../../../autogen/B1_css' >> .cake3/tmp__liburu3BootstraptestB1_in
+	echo '../../../.././lib/uru3/Bootstrap/test/B1' >> .cake3/tmp__liburu3BootstraptestB1_in
 ./lib/uru3/Bootstrap/lib.urp: ./Makefile ./lib/uru3/Bootstrap/../JQuery/lib.urp ./lib/uru3/Bootstrap/../Uru/lib.urp ./lib/uru3/Bootstrap/Bootstrap.ur ./lib/uru3/Bootstrap/Bootstrap.urs ./lib/uru3/Bootstrap/FormSignin.ur .cake3/tmp__liburu3Bootstraplib_in autogen/Bootstrap_css.ur autogen/Bootstrap_css.urs autogen/Bootstrap_css_c.h autogen/Bootstrap_css_c.o autogen/Bootstrap_min_js.ur autogen/Bootstrap_min_js.urs autogen/Bootstrap_min_js_c.h autogen/Bootstrap_min_js_c.o autogen/Bootstrap_theme_css.ur autogen/Bootstrap_theme_css.urs autogen/Bootstrap_theme_css_c.h autogen/Bootstrap_theme_css_c.o autogen/FormSignin_css.ur autogen/FormSignin_css.urs autogen/FormSignin_css_c.h autogen/FormSignin_css_c.o autogen/Glyphicons_halflings_regular_eot.ur autogen/Glyphicons_halflings_regular_eot.urs autogen/Glyphicons_halflings_regular_eot_c.h autogen/Glyphicons_halflings_regular_eot_c.o autogen/Glyphicons_halflings_regular_svg.ur autogen/Glyphicons_halflings_regular_svg.urs autogen/Glyphicons_halflings_regular_svg_c.h autogen/Glyphicons_halflings_regular_svg_c.o autogen/Glyphicons_halflings_regular_ttf.ur autogen/Glyphicons_halflings_regular_ttf.urs autogen/Glyphicons_halflings_regular_ttf_c.h autogen/Glyphicons_halflings_regular_ttf_c.o autogen/Glyphicons_halflings_regular_woff.ur autogen/Glyphicons_halflings_regular_woff.urs autogen/Glyphicons_halflings_regular_woff_c.h autogen/Glyphicons_halflings_regular_woff_c.o
 	cat .cake3/tmp__liburu3Bootstraplib_in > ./lib/uru3/Bootstrap/lib.urp
 .cake3/tmp__liburu3Bootstraplib_in: ./Makefile
@@ -187,93 +274,6 @@ dropdb: ./HomePage.db ./Makefile
 	echo '../../.././lib/uru3/Bootstrap/Bootstrap' >> .cake3/tmp__liburu3Bootstraplib_in
 	echo '../../../autogen/FormSignin_css' >> .cake3/tmp__liburu3Bootstraplib_in
 	echo '../../.././lib/uru3/Bootstrap/FormSignin' >> .cake3/tmp__liburu3Bootstraplib_in
-./lib/uru3/Bootstrap/test/Modal.exe: ./Makefile ./lib/uru3/Bootstrap/test/Modal.urp $(call GUARD,URVERSION)
-	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/Modal
-./lib/uru3/Bootstrap/test/Modal.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/Modal.ur .cake3/tmp__liburu3BootstraptestModal_in autogen/Modal_css.ur autogen/Modal_css.urs autogen/Modal_css_c.h autogen/Modal_css_c.o
-	cat .cake3/tmp__liburu3BootstraptestModal_in > ./lib/uru3/Bootstrap/test/Modal.urp
-.cake3/tmp__liburu3BootstraptestModal_in: ./Makefile
-	-rm -rf .cake3/tmp__liburu3BootstraptestModal_in
-	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo 'include ../../../../autogen/Modal_css_c.h' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo 'link ../../../../autogen/Modal_css_c.o' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo 'ffi ../../../../autogen/Modal_css_c' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo 'ffi ../../../../autogen/Modal_css_js' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo 'safeGet Modal_css/blobpage' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo 'safeGet Modal_css/blob' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo '' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo '../../../../autogen/Modal_css' >> .cake3/tmp__liburu3BootstraptestModal_in
-	echo '../../../.././lib/uru3/Bootstrap/test/Modal' >> .cake3/tmp__liburu3BootstraptestModal_in
-./lib/uru3/Bootstrap/test/B3_Login.exe: ./Makefile ./lib/uru3/Bootstrap/test/B3_Login.urp $(call GUARD,URVERSION)
-	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B3_Login
-./lib/uru3/Bootstrap/test/B3_Login.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B3_Login.ur ./lib/uru3/Bootstrap/test/B3_Login.urs .cake3/tmp__liburu3BootstraptestB3_Login_in autogen/B3_Login_css.ur autogen/B3_Login_css.urs autogen/B3_Login_css_c.h autogen/B3_Login_css_c.o
-	cat .cake3/tmp__liburu3BootstraptestB3_Login_in > ./lib/uru3/Bootstrap/test/B3_Login.urp
-.cake3/tmp__liburu3BootstraptestB3_Login_in: ./Makefile
-	-rm -rf .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'allow url https://github.com/grwlf/*' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'allow url https://camo.githubusercontent.com/*' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'rewrite style B3_Login/* [-]' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'include ../../../../autogen/B3_Login_css_c.h' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'link ../../../../autogen/B3_Login_css_c.o' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'ffi ../../../../autogen/B3_Login_css_c' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'ffi ../../../../autogen/B3_Login_css_js' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'safeGet B3_Login_css/blobpage' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo 'safeGet B3_Login_css/blob' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo '' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo '../../../../autogen/B3_Login_css' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-	echo '../../../.././lib/uru3/Bootstrap/test/B3_Login' >> .cake3/tmp__liburu3BootstraptestB3_Login_in
-./lib/uru3/Bootstrap/test/B2.exe: ./Makefile ./lib/uru3/Bootstrap/test/B2.urp $(call GUARD,URVERSION)
-	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B2
-./lib/uru3/Bootstrap/test/B2.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B2.ur ./lib/uru3/Bootstrap/test/B2.urs .cake3/tmp__liburu3BootstraptestB2_in autogen/B2_css.ur autogen/B2_css.urs autogen/B2_css_c.h autogen/B2_css_c.o autogen/Holder_js.ur autogen/Holder_js.urs autogen/Holder_js_c.h autogen/Holder_js_c.o
-	cat .cake3/tmp__liburu3BootstraptestB2_in > ./lib/uru3/Bootstrap/test/B2.urp
-.cake3/tmp__liburu3BootstraptestB2_in: ./Makefile
-	-rm -rf .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'allow url https://github.com/grwlf/*' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'allow url https://camo.githubusercontent.com/*' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'rewrite style B2/* [-]' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'include ../../../../autogen/B2_css_c.h' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'link ../../../../autogen/B2_css_c.o' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'ffi ../../../../autogen/B2_css_c' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'ffi ../../../../autogen/B2_css_js' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'safeGet B2_css/blobpage' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'safeGet B2_css/blob' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'include ../../../../autogen/Holder_js_c.h' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'link ../../../../autogen/Holder_js_c.o' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'ffi ../../../../autogen/Holder_js_c' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'ffi ../../../../autogen/Holder_js_js' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'allow mime text/javascript' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'safeGet Holder_js/blobpage' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo 'safeGet Holder_js/blob' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo '' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo '../../../../autogen/B2_css' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo '../../../../autogen/Holder_js' >> .cake3/tmp__liburu3BootstraptestB2_in
-	echo '../../../.././lib/uru3/Bootstrap/test/B2' >> .cake3/tmp__liburu3BootstraptestB2_in
-./lib/uru3/Bootstrap/test/B1.exe: ./Makefile ./lib/uru3/Bootstrap/test/B1.urp $(call GUARD,URVERSION)
-	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B1
-./lib/uru3/Bootstrap/test/B1.urp: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B1.ur ./lib/uru3/Bootstrap/test/B1.urs .cake3/tmp__liburu3BootstraptestB1_in autogen/B1_css.ur autogen/B1_css.urs autogen/B1_css_c.h autogen/B1_css_c.o
-	cat .cake3/tmp__liburu3BootstraptestB1_in > ./lib/uru3/Bootstrap/test/B1.urp
-.cake3/tmp__liburu3BootstraptestB1_in: ./Makefile
-	-rm -rf .cake3/tmp__liburu3BootstraptestB1_in
-	echo 'rewrite style B1/* [-]' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo 'library ../../../.././lib/uru3/Bootstrap' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo 'include ../../../../autogen/B1_css_c.h' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo 'link ../../../../autogen/B1_css_c.o' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo 'ffi ../../../../autogen/B1_css_c' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo 'ffi ../../../../autogen/B1_css_js' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo 'allow mime text/css' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo 'safeGet B1_css/blobpage' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo 'safeGet B1_css/blob' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo '' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo '$$/list' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo '../../../../autogen/B1_css' >> .cake3/tmp__liburu3BootstraptestB1_in
-	echo '../../../.././lib/uru3/Bootstrap/test/B1' >> .cake3/tmp__liburu3BootstraptestB1_in
 ./lib/urweb-callback/demo/Demo2.exe: .fix-multy2
 ./lib/urweb-callback/demo/Demo2.urp: ./Makefile ./lib/urweb-callback/demo/Demo2.ur ./lib/urweb-callback/demo/Demo2.urs ./lib/urweb-callback/lib.urp .cake3/tmp__liburweb-callbackdemoDemo2_in
 	cat .cake3/tmp__liburweb-callbackdemoDemo2_in > ./lib/urweb-callback/demo/Demo2.urp
@@ -401,10 +401,6 @@ dropdb: .fix-multy1
 ./lib/uru3/Bootstrap/test/Narrow.urp: .fix-multy1
 .PHONY: .cake3/tmp__liburu3BootstraptestNarrow_in
 .cake3/tmp__liburu3BootstraptestNarrow_in: .fix-multy1
-.PHONY: ./lib/uru3/Bootstrap/lib.urp
-./lib/uru3/Bootstrap/lib.urp: .fix-multy1
-.PHONY: .cake3/tmp__liburu3Bootstraplib_in
-.cake3/tmp__liburu3Bootstraplib_in: .fix-multy1
 .PHONY: ./lib/uru3/Bootstrap/test/Modal.exe
 ./lib/uru3/Bootstrap/test/Modal.exe: .fix-multy1
 .PHONY: ./lib/uru3/Bootstrap/test/Modal.urp
@@ -429,6 +425,10 @@ dropdb: .fix-multy1
 ./lib/uru3/Bootstrap/test/B1.urp: .fix-multy1
 .PHONY: .cake3/tmp__liburu3BootstraptestB1_in
 .cake3/tmp__liburu3BootstraptestB1_in: .fix-multy1
+.PHONY: ./lib/uru3/Bootstrap/lib.urp
+./lib/uru3/Bootstrap/lib.urp: .fix-multy1
+.PHONY: .cake3/tmp__liburu3Bootstraplib_in
+.cake3/tmp__liburu3Bootstraplib_in: .fix-multy1
 .PHONY: ./lib/urweb-callback/demo/Demo2.exe
 ./lib/urweb-callback/demo/Demo2.exe: .fix-multy1
 .PHONY: ./lib/urweb-callback/demo/Demo2.urp
@@ -450,14 +450,6 @@ dropdb: .fix-multy1
 .INTERMEDIATE: .fix-multy1
 .fix-multy1: 
 	-mkdir .cake3
-	$(MAKE) -C ./lib/uru3/Bootstrap/../Uru -f Makefile 
-	$(MAKE) -C ./lib/uru3/Bootstrap/../JQuery -f Makefile 
-	$(MAKE) -C ./lib/uru3/Bootstrap/../Uru -f Makefile 
-	$(MAKE) -C ./lib/uru3/Bootstrap/../JQuery -f Makefile 
-	$(MAKE) -C ./lib/uru3/Bootstrap/../Uru -f Makefile 
-	$(MAKE) -C ./lib/uru3/Bootstrap/../JQuery -f Makefile 
-	$(MAKE) -C ./lib/uru3/Bootstrap/../Uru -f Makefile 
-	$(MAKE) -C ./lib/uru3/Bootstrap/../JQuery -f Makefile 
 	$(MAKE) -C ./lib/uru3/Bootstrap/../Uru -f Makefile 
 	$(MAKE) -C ./lib/uru3/Bootstrap/../JQuery -f Makefile 
 	$(MAKE) -C ./lib/uru3/Bootstrap -f Makefile lib
