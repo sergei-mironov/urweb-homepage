@@ -13,3 +13,6 @@
 [submodule "lib/urweb-prelude"]
 	path = lib/urweb-prelude
 	url = https://github.com/grwlf/urweb-prelude
+[submodule "lib/urweb-xmlw"]
+	path = lib/urweb-xmlw
+	url = https://github.com/grwlf/urweb-xmlw
