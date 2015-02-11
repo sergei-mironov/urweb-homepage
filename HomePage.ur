@@ -8,8 +8,8 @@ fun main {} : transaction page =
     <body>
       <h2>Ur/Web</h2>
       <p>
-      <h3>Urweb-monad-pack</h3>
-      <a link={XmlGenDemo.viewm {}}>XmlGen demo</a>
+      <h3>Urweb-XMLW</h3>
+      <a link={XMLW1.main {}}>XMLW demo</a>
       </p>
       <p>
       <h3>Compet</h3>
@@ -32,7 +32,7 @@ fun main {} : transaction page =
 
       <h2>Slides and materials</h2>
       <p>
-      <a link={Slides_Minsk_2014_pdf.blobpage {}} download="UrWeb-Minsk-2014.pdf">Minsk, October 25, 2014</a>
+      <a link={Slides_Minsk_2014_pdf.content {}} download="UrWeb-Minsk-2014.pdf">Minsk, October 25, 2014</a>
       </p>
 
     </body>
