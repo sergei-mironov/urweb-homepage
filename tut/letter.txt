@@ -1,85 +1,67 @@
-/* I started to learn Ur/Web 18 months ago when I was searching for a */
-/* purely-functional tool for a hobby-scale Web development. I was disappointed */
-/* that mainstream Haskell frameworks of that time such as Snap, Happstack and */
-/* Yesod were already too complex and yet offers only weak control over JavaScript */
-/* and CSS parts of Web application. */
-
-Web-development experienced a high degree of division of labor. There are
-Html-designers, JavaScript-programmers, CSS-programmers etc. It is probably fine
-for big projects, but it also forces individuals to follow this line if they
-wish to use popular Web framework.
-
-The thing about Ur/Web I like the most is that it gives developers the ability
-to write and maintain self-contained (and often a single-file) Web applications.
-It is ideally for projects to be handled by one-person team: in such cases one
-may quickly learn that strict "Model-View-Controller" approach is not good for
-everyone.
+The thing about Ur/Web I like the most is the ability to write and maintain
+self-contained (and often a single-file) Web applications it gives to
+developers. It is so good for projects to be handled by one-person team.
 
 And this would be impossible without main Ur/Web's feature - rich type system
-covering not only basic XML-generation tasks, but also SQL and AJAX
-integration. With Ur/Web we are able to declare tables we need, make queries, code
-the views all in one language. We may be sure that changes in application logic
-will not crash the application just because someone run it with old database by
+covering not only basic XML-generation tasks, but also AJAX and SQL integration.
+The latter is especially important. Ur/Web record types and the algebra on top
+of them have a great impact on whole typesystem. With Ur/Web we are able to
+declare database tables we need, make queries, code the views all in one
+language in a type-safe way. We may be sure that changes in application logic
+doesn't crash the application just because someone run it with old database by
 mistake.
 
-Another strong point is the functional nature of the language. Language supports
-many concepts, common for functional programmers, higher-order functions,
-Monads, Type classes (In my opinion, Ur/Web's typeclasses are implemented in a
-more clear and straightforward way than in Haskell). Functional approach
-means 'shorter code' and 'easy to maintain'.
+The functional nature of the language is also it's benefit. In my eyes it
+means that we are able to write shorter code, projects are easier to maintain.
+Language supports many concepts, common for functional programmers, higher-order
+functions, Monads, Type classes (In my opinion, Ur/Web's typeclasses are
+implemented in a more clear and straightforward way than in Haskell). 
 
 As an embedded programmer, I feel I should also mention the fact, that Ur/Web
-compiler compiles into C code, which is then passed to native GCC to produce the
-final binary. I feel very comfortable when I am able to check the code I
-get. Also, this design increases portability of end-user application. I remember
-someone already reported on the Mail List about successful deployment of the
-Ur/Web server to an ARM device.
+compiler doesn't produce the binary directly. It compiles into C code instead,
+which is then passed to native GCC to produce the final binary. I feel very
+comfortable when I am able to check the code I get. Also, this design increases
+portability of end-user application. I remember someone already reported on the
+Mail List about successful deployment of the Ur/Web server to an ARM device.
 
-Of cause, there are weak points. The main one is the high complexity of the
-language, comparing to other functional languages like Haskell (which are not
-easy as well). I would say that Ur/Web's entrance threshold is the highest among
-all languages.  The feature-richness of a type system leads to bulky type
+Now, to the weak points. The main one, in my opinion, is the high complexity of
+the language, comparing to other functional languages like Haskell (which are
+not easy as well). I would say that Ur/Web's entrance threshold is the highest
+among all languages.  The feature-richness of a type system leads to bulky type
 annotations for standard library functions (take a look at lib/ur/top.ur file
-from the distribution to see what I mean). I had to carefully read the manual
-and do some experiments before I could understand how the standard library works.
+from the distribution to see what I mean). One should to read the manual really
+carefully and do experiments before they could understand how the language
+works.
 
 Another problem I see is the fact that we could write a program which passes
-type checks, but still fails to compile, with a reason of violating of some
-additional restrictions. The presence of such restrictions means by itself that
+type checks, but still fails to compile, with a reason of violating some
+additional restrictions. The presence of such restrictions by itself means that
 typesystem doesn't perfectly cover the subject area. For example: we are not
-allowed to define two Ur/Web functions returning 'page' with same names, even if
-we are going to define them in different scopes of a module.  Or this one:
-client-only and server-only functions all 'live' in a same 'transaction' monad;
-sometimes programmer faces the fact that he or she just can't call this function
-from this place.  Practically, all restrictions have their reasons and
-workarounds, but the solution as a whole somewhat looses it's beauty (or should
-I say 'states a challenge for the future language designers').
+allowed to define two Ur/Web page-functions of the same names, even if we are
+going to define them in different scopes of a module. Or this one: client-only
+and server-only functions all 'live' in a same 'transaction' monad; sometimes
+programmer faces the fact that he or she just can't call this function from some
+place. There are other caveats of this nature. Practically, all restrictions
+have their reasons and workarounds, but the solution as a whole somewhat looses
+it's beauty (or should I say 'states a challenge for the future language
+designers').
+
+To conclude, I'd like to say, that IMHO, Web-development experienced a high
+degree of division of labor. There are Html-designers, JavaScript-programmers,
+CSS-programmers etc. It is probably fine for big projects, but it also forces
+individuals to follow this line if they wish to use popular Web framework. I
+once tried Orchard CMS - it created for me approx. 90 tables in the database for
+a very simple page. It also required me to write layout rules in XML of two
+kinds, in addition to 'normal' JS, CSS and C# (Orchard is written in .NET). It
+is far beyond my personal 'maintainability barrier'.
+
+Ur/Web, from the other side allows us to think about the project as a whole. We
+no longer have to divide it into template and logic parts, or into
+model-view-controller or in some other way. Instead, we are free to make our own
+decisions every time.
 
 
+I hope, my opinion will help you in your work.
+Regards,
+Sergey
 
-
-
-----
-
-I believe that separating application logic from presentation
-(famous Model-View-Controller) is not good for everyone.
-
-
-I once tried Orchard CMS - it created for me near 90(!!) database tables for
-even a simple almost static page. It also required me to write layout rules in
-XML of two kinds. It is far beyond my personal 'maintainability barrier'.
-
-
- I am trying to use popular framework 
-
-Also, I found it 
-
-
-
-
-As an embedded-systems programmer, I prefer professional Web-developer
-I have a thought about the situation in Web development
-
-Ur/Web by design incorporate goes against the Web development trends because 
-
-I use Ur/Web for home-scale web development because of it's abi
