@@ -39,7 +39,7 @@ db = rule $ do
   shell [cmd|psql -f $(sql) $(string dbn)|]
   shell [cmd|touch @(sql.="db")|]
 
-main = writeMake (file "Makefile") $ do
+main = writeDefaultMakefiles $ do
 
   rule $ do
     phony "dropdb"
