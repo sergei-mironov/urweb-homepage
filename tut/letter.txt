@@ -1,4 +1,4 @@
-The thing about Ur/Web I like the most is the ability to write and maintain
+The thing I like the most about Ur/Web is the ability to write and maintain
 self-contained (and often a single-file) Web applications it gives to
 developers. It is so good for projects to be handled by one-person team.
 
@@ -11,7 +11,7 @@ language in a type-safe way. We may be sure that changes in application logic
 doesn't crash the application just because someone run it with old database by
 mistake.
 
-The functional nature of the language is also it's benefit. In my eyes it
+The functional nature of the language is also its benefit. In my eyes it
 means that we are able to write shorter code, projects are easier to maintain.
 Language supports many concepts, common for functional programmers, higher-order
 functions, Monads, Type classes (In my opinion, Ur/Web's typeclasses are
@@ -21,17 +21,16 @@ As an embedded programmer, I feel I should also mention the fact, that Ur/Web
 compiler doesn't produce the binary directly. It compiles into C code instead,
 which is then passed to native GCC to produce the final binary. I feel very
 comfortable when I am able to check the code I get. Also, this design increases
-portability of end-user application. I remember someone already reported on the
-Mail List about successful deployment of the Ur/Web server to an ARM device.
+portability of end-user application. I remember someone has already reported on
+the Mail List about successful deployment of the Ur/Web server to an ARM device.
 
 Now, to the weak points. The main one, in my opinion, is the high complexity of
 the language, comparing to other functional languages like Haskell (which are
 not easy as well). I would say that Ur/Web's entrance threshold is the highest
-among all languages.  The feature-richness of a type system leads to bulky type
-annotations for standard library functions (take a look at lib/ur/top.ur file
-from the distribution to see what I mean). One should to read the manual really
-carefully and do experiments before they could understand how the language
-works.
+among all languages I know.  The feature-richness of a type system leads to
+bulky type annotations (take a look at lib/ur/top.ur file from the distribution
+to see what I mean). One should read the manual really carefully and do
+experiments before they could understand how the language works.
 
 Another problem I see is the fact that we could write a program which passes
 type checks, but still fails to compile, with a reason of violating some
@@ -43,7 +42,7 @@ and server-only functions all 'live' in a same 'transaction' monad; sometimes
 programmer faces the fact that he or she just can't call this function from some
 place. There are other caveats of this nature. Practically, all restrictions
 have their reasons and workarounds, but the solution as a whole somewhat looses
-it's beauty (or should I say 'states a challenge for the future language
+its beauty (or should I say 'states a challenge for the future language
 designers').
 
 To conclude, I'd like to say, that IMHO, Web-development experienced a high
