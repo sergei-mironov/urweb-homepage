@@ -328,9 +328,9 @@ UR_INCL = -I$(shell urweb -print-cinclude)
 	urweb -dbms sqlite ./lib/urweb-xmlw/test/XMLW1
 ./HomePage.exe: ./.fix-multy1
 ./HomePage.sql: ./.fix-multy1
-./HomePage.urp: ./.cake3/tmp___HomePage_in_1 ./.cake3/tmp___HomePage_in_2 ./.cake3/tmp___tut_Slides_Minsk_2014_pdf_patch ./Makefile
+./HomePage.urp: ./.cake3/tmp___HomePage_in_1 ./.cake3/tmp___HomePage_in_2 ./Makefile ./autogen/Slides_Minsk_2014_pdf.urp.in
 	cat ./.cake3/tmp___HomePage_in_1 > ./HomePage.urp
-	cat ./.cake3/tmp___tut_Slides_Minsk_2014_pdf_patch >> ./HomePage.urp
+	cat ./autogen/Slides_Minsk_2014_pdf.urp.in >> ./HomePage.urp
 	cat ./.cake3/tmp___HomePage_in_2 >> ./HomePage.urp
 ./autogen/Slides_Minsk_2014_pdf_c.o: ./Makefile ./autogen/Slides_Minsk_2014_pdf_c.c $(call GUARD,UR_CC) $(call GUARD,UR_INCL)
 	$(UR_CC) -c $(UR_INCL) -o ./autogen/Slides_Minsk_2014_pdf_c.o ./autogen/Slides_Minsk_2014_pdf_c.c
@@ -364,45 +364,45 @@ UR_INCL = -I$(shell urweb -print-cinclude)
 	$(UR_CC) -c $(UR_INCL) -o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.c
 ./lib/uru3/Bootstrap/autogen/holder_js_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/holder_js_c.c $(call GUARD,UR_CC) $(call GUARD,UR_INCL)
 	$(UR_CC) -c $(UR_INCL) -o ./lib/uru3/Bootstrap/autogen/holder_js_c.o ./lib/uru3/Bootstrap/autogen/holder_js_c.c
-./lib/uru3/Bootstrap/lib.urp: ./.cake3/tmp___lib_uru3_Bootstrap_FormSignin_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_Tooltip_js_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_css_bootstrap_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_css_bootstrap_theme_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_fonts_glyphicons_halflings_regular_eot_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_fonts_glyphicons_halflings_regular_svg_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_fonts_glyphicons_halflings_regular_ttf_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_fonts_glyphicons_halflings_regular_woff_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_js_bootstrap_min_js_patch ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2 ./Makefile
+./lib/uru3/Bootstrap/lib.urp: ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/FormSignin_css.urp.in ./lib/uru3/Bootstrap/autogen/Tooltip_js.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_css.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_min_js.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_1 > ./lib/uru3/Bootstrap/lib.urp
-	cat ./.cake3/tmp___lib_uru3_Bootstrap_FormSignin_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_Tooltip_js_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_js_bootstrap_min_js_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_css_bootstrap_theme_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_css_bootstrap_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_fonts_glyphicons_halflings_regular_woff_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_fonts_glyphicons_halflings_regular_ttf_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_fonts_glyphicons_halflings_regular_svg_patch ./.cake3/tmp___lib_uru3_Bootstrap_dist_fonts_glyphicons_halflings_regular_eot_patch >> ./lib/uru3/Bootstrap/lib.urp
+	cat ./lib/uru3/Bootstrap/autogen/FormSignin_css.urp.in ./lib/uru3/Bootstrap/autogen/Tooltip_js.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_min_js.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_css.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot.urp.in >> ./lib/uru3/Bootstrap/lib.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2 >> ./lib/uru3/Bootstrap/lib.urp
 ./lib/uru3/Bootstrap/test/B1.exe: ./Makefile ./lib/uru3/Bootstrap/test/B1.urp $(call GUARD,URVERSION)
 	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B1
-./lib/uru3/Bootstrap/test/B1.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_2 ./Makefile
+./lib/uru3/Bootstrap/test/B1.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/B1_css.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_1 > ./lib/uru3/Bootstrap/test/B1.urp
-	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_css_patch >> ./lib/uru3/Bootstrap/test/B1.urp
+	cat ./lib/uru3/Bootstrap/autogen/B1_css.urp.in >> ./lib/uru3/Bootstrap/test/B1.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_2 >> ./lib/uru3/Bootstrap/test/B1.urp
 ./lib/uru3/Bootstrap/test/B2.exe: ./Makefile ./lib/uru3/Bootstrap/test/B2.urp $(call GUARD,URVERSION)
 	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B2
-./lib/uru3/Bootstrap/test/B2.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_holder_js_patch ./Makefile
+./lib/uru3/Bootstrap/test/B2.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/B2_css.urp.in ./lib/uru3/Bootstrap/autogen/holder_js.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_1 > ./lib/uru3/Bootstrap/test/B2.urp
-	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_holder_js_patch ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_css_patch >> ./lib/uru3/Bootstrap/test/B2.urp
+	cat ./lib/uru3/Bootstrap/autogen/holder_js.urp.in ./lib/uru3/Bootstrap/autogen/B2_css.urp.in >> ./lib/uru3/Bootstrap/test/B2.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_2 >> ./lib/uru3/Bootstrap/test/B2.urp
 ./lib/uru3/Bootstrap/test/B3_Login.exe: ./Makefile ./lib/uru3/Bootstrap/test/B3_Login.urp $(call GUARD,URVERSION)
 	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/B3_Login
-./lib/uru3/Bootstrap/test/B3_Login.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_2 ./Makefile
+./lib/uru3/Bootstrap/test/B3_Login.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/B3_Login_css.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_1 > ./lib/uru3/Bootstrap/test/B3_Login.urp
-	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_css_patch >> ./lib/uru3/Bootstrap/test/B3_Login.urp
+	cat ./lib/uru3/Bootstrap/autogen/B3_Login_css.urp.in >> ./lib/uru3/Bootstrap/test/B3_Login.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_2 >> ./lib/uru3/Bootstrap/test/B3_Login.urp
 ./lib/uru3/Bootstrap/test/Modal.exe: ./Makefile ./lib/uru3/Bootstrap/test/Modal.urp $(call GUARD,URVERSION)
 	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/Modal
-./lib/uru3/Bootstrap/test/Modal.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_2 ./Makefile
+./lib/uru3/Bootstrap/test/Modal.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/Modal_css.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_1 > ./lib/uru3/Bootstrap/test/Modal.urp
-	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_css_patch >> ./lib/uru3/Bootstrap/test/Modal.urp
+	cat ./lib/uru3/Bootstrap/autogen/Modal_css.urp.in >> ./lib/uru3/Bootstrap/test/Modal.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_2 >> ./lib/uru3/Bootstrap/test/Modal.urp
 ./lib/uru3/Bootstrap/test/Narrow.exe: ./Makefile ./lib/uru3/Bootstrap/test/Narrow.urp $(call GUARD,URVERSION)
 	urweb -dbms sqlite ./lib/uru3/Bootstrap/test/Narrow
-./lib/uru3/Bootstrap/test/Narrow.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_css_patch ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_2 ./Makefile
+./lib/uru3/Bootstrap/test/Narrow.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/Narrow_css.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_1 > ./lib/uru3/Bootstrap/test/Narrow.urp
-	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_css_patch >> ./lib/uru3/Bootstrap/test/Narrow.urp
+	cat ./lib/uru3/Bootstrap/autogen/Narrow_css.urp.in >> ./lib/uru3/Bootstrap/test/Narrow.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_2 >> ./lib/uru3/Bootstrap/test/Narrow.urp
 ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.o: ./Makefile ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.c $(call GUARD,UR_CC) $(call GUARD,UR_INCL)
 	$(UR_CC) -c $(UR_INCL) -o ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.o ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.c
-./lib/uru3/JQuery/lib.urp: ./.cake3/tmp___lib_uru3_JQuery_jquery_1_9_1_js_patch ./.cake3/tmp___lib_uru3_JQuery_lib_in_1 ./.cake3/tmp___lib_uru3_JQuery_lib_in_2 ./Makefile
+./lib/uru3/JQuery/lib.urp: ./.cake3/tmp___lib_uru3_JQuery_lib_in_1 ./.cake3/tmp___lib_uru3_JQuery_lib_in_2 ./Makefile ./lib/uru3/JQuery/autogen/jquery_1_9_1_js.urp.in
 	cat ./.cake3/tmp___lib_uru3_JQuery_lib_in_1 > ./lib/uru3/JQuery/lib.urp
-	cat ./.cake3/tmp___lib_uru3_JQuery_jquery_1_9_1_js_patch >> ./lib/uru3/JQuery/lib.urp
+	cat ./lib/uru3/JQuery/autogen/jquery_1_9_1_js.urp.in >> ./lib/uru3/JQuery/lib.urp
 	cat ./.cake3/tmp___lib_uru3_JQuery_lib_in_2 >> ./lib/uru3/JQuery/lib.urp
 ./lib/uru3/Uru/Script.o: ./Makefile ./lib/uru3/Uru/Script.c $(call GUARD,UR_CC) $(call GUARD,UR_CFLAGS) $(call GUARD,UR_INCL)
 	$(UR_CC) -c $(UR_INCL) $(UR_CFLAGS)  -o ./lib/uru3/Uru/Script.o ./lib/uru3/Uru/Script.c
@@ -421,9 +421,9 @@ UR_INCL = -I$(shell urweb -print-cinclude)
 	cat ./.cake3/tmp___lib_urweb_callback_lib_in_2 >> ./lib/urweb-callback/lib.urp
 ./lib/urweb-compet/Compet.exe: ./.fix-multy3
 ./lib/urweb-compet/Compet.sql: ./.fix-multy3
-./lib/urweb-compet/Compet.urp: ./.cake3/tmp___lib_urweb_compet_Compet_in_1 ./.cake3/tmp___lib_urweb_compet_Compet_in_2 ./.cake3/tmp___lib_urweb_compet_src_Compet_css_patch ./Makefile
+./lib/urweb-compet/Compet.urp: ./.cake3/tmp___lib_urweb_compet_Compet_in_1 ./.cake3/tmp___lib_urweb_compet_Compet_in_2 ./Makefile ./lib/urweb-compet/autogen/Compet_css.urp.in
 	cat ./.cake3/tmp___lib_urweb_compet_Compet_in_1 > ./lib/urweb-compet/Compet.urp
-	cat ./.cake3/tmp___lib_urweb_compet_src_Compet_css_patch >> ./lib/urweb-compet/Compet.urp
+	cat ./lib/urweb-compet/autogen/Compet_css.urp.in >> ./lib/urweb-compet/Compet.urp
 	cat ./.cake3/tmp___lib_urweb_compet_Compet_in_2 >> ./lib/urweb-compet/Compet.urp
 ./lib/urweb-compet/autogen/Compet_css_c.o: ./Makefile ./lib/urweb-compet/autogen/Compet_css_c.c $(call GUARD,UR_CC) $(call GUARD,UR_INCL)
 	$(UR_CC) -c $(UR_INCL) -o ./lib/urweb-compet/autogen/Compet_css_c.o ./lib/urweb-compet/autogen/Compet_css_c.c
