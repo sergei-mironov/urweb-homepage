@@ -16,3 +16,6 @@
 [submodule "lib/urweb-xmlw"]
 	path = lib/urweb-xmlw
 	url = https://github.com/grwlf/urweb-xmlw
+[submodule "lib/oilprice"]
+	path = lib/oilprice
+	url = https://github.com/grwlf/oilprice
