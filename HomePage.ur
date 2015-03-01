@@ -8,6 +8,10 @@ fun main {} : transaction page =
     <body>
       <h2>Ur/Web</h2>
       <p>
+      <h3>Oilprice</h3>
+      <a link={Oilprice.main {}}>Oilprice demo</a>
+      </p>
+      <p>
       <h3>Urweb-XMLW</h3>
       <a link={XMLW1.main {}}>XMLW demo</a>
       </p>
