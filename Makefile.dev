@@ -493,7 +493,7 @@ UWVER = $(shell $(URWEB) -version)
 ./.fix-multy9: ./Makefile.dev ./lib/uru3/Bootstrap/test/Modal.css
 	mkdir -p ./lib/uru3/Bootstrap/autogen 2>/dev/null
 	urembed  -c ./lib/uru3/Bootstrap/autogen/Modal_css_c.c -H ./lib/uru3/Bootstrap/autogen/Modal_css_c.h -s ./lib/uru3/Bootstrap/autogen/Modal_css_c.urs -w ./lib/uru3/Bootstrap/autogen/Modal_css.ur  ./lib/uru3/Bootstrap/test/Modal.css > ./lib/uru3/Bootstrap/autogen/Modal_css.urp.in
-./Cakegen: ./Cake_Homepage.hs ./lib/oilprice/Cake_Oilprice.hs ./lib/uru3/Bootstrap/Cake_Bootstrap.hs ./lib/uru3/BootstrapMisc/Cake_BootstrapMisc.hs ./lib/uru3/Dialog/Cake_Dialog.hs ./lib/uru3/JQuery/Cake_JQ.hs ./lib/uru3/Persona/Cake_Persona.hs ./lib/uru3/Uru/Cake_URU.hs ./lib/urweb-callback/Cake_Callback.hs ./lib/urweb-compet/Cake_Compet.hs ./lib/urweb-monad-pack/Cake_MonadPack.hs ./lib/urweb-prelude/Cake_Prelude.hs ./lib/urweb-soup/Cake_Soup.hs ./lib/urweb-xmlw/Cake_XMLW.hs ./lib/urweb-xmlw/lib/urweb-monad-pack/Cake_MonadPack.hs
+./Cakegen: ./Cake_Homepage.hs ./lib/oilprice/Cake_Oilprice.hs ./lib/uru3/Bootstrap/Cake_Bootstrap.hs ./lib/uru3/BootstrapMisc/Cake_BootstrapMisc.hs ./lib/uru3/Dialog/Cake_Dialog.hs ./lib/uru3/JQuery/Cake_JQ.hs ./lib/uru3/Persona/Cake_Persona.hs ./lib/uru3/Uru/Cake_URU.hs ./lib/urweb-callback/Cake_Callback.hs ./lib/urweb-compet/Cake_Compet.hs ./lib/urweb-monad-pack/Cake_MonadPack.hs ./lib/urweb-prelude/Cake_Prelude.hs ./lib/urweb-soup/Cake_Soup.hs ./lib/urweb-xmlw/Cake_XMLW.hs
 	cake3
 ./HomePage.exe: ./.fix-multy1
 ./HomePage.sql: ./.fix-multy1
