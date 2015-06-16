@@ -12,18 +12,20 @@ URWEB = urweb
 UWCC = $(shell $(shell $(URWEB) -print-ccompiler) -print-prog-name=gcc)
 UWCPP = $(shell $(shell $(URWEB) -print-ccompiler) -print-prog-name=g++)
 UWFLAGS = 
-UWINCLUDE = -I$(shell $(URWEB) -print-cinclude)
+UWINCLUDE = $(shell $(URWEB) -print-cinclude)
+UWINCLUDEDIR = $(shell $(URWEB) -print-cinclude)/..
 UWVER = $(shell $(URWEB) -version)
 .PHONY: ./all
 ./all: ./HomePage.exe ./HomePage.sql ./Makefile
-./.cake3/tmp___HomePage_in_2: ./HomePage.ur ./HomePage.urs ./Makefile ./autogen/Slides_Minsk_2014_pdf.ur ./autogen/Slides_Minsk_2014_pdf_c.h ./autogen/Slides_Minsk_2014_pdf_c.o ./lib/oilprice/Oilprice.urp ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.urp ./lib/uru3/Bootstrap/test/B3_Login.urp ./lib/uru3/Bootstrap/test/Modal.urp ./lib/uru3/Bootstrap/test/Narrow.urp ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-compet/Compet.urp ./lib/urweb-xmlw/test/XMLW1.urp
+./.cake3/tmp___HomePage_in_2: ./HomePage.ur ./HomePage.urs ./Makefile ./autogen/Slides_Minsk_2014_pdf.ur ./autogen/Slides_Minsk_2014_pdf_c.h ./autogen/Slides_Minsk_2014_pdf_c.o ./lib/oilprice/Oilprice.urp ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.urp ./lib/uru3/Bootstrap/test/B3_Login.urp ./lib/uru3/Bootstrap/test/Modal.urp ./lib/uru3/Bootstrap/test/Narrow.urp ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-compet/Compet.urp ./lib/urweb-etab/Etab.urp ./lib/urweb-xmlw/test/XMLW1.urp
 	( \
 	echo   ;\
 	echo \.\/autogen\/Slides\_Minsk\_2014\_pdf  ;\
 	echo \.\/HomePage  ;\
 	) > ./.cake3/tmp___HomePage_in_2
-./.cake3/tmp___HomePage_in_1: ./HomePage.ur ./HomePage.urs ./Makefile ./autogen/Slides_Minsk_2014_pdf.ur ./autogen/Slides_Minsk_2014_pdf_c.h ./autogen/Slides_Minsk_2014_pdf_c.o ./lib/oilprice/Oilprice.urp ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.urp ./lib/uru3/Bootstrap/test/B3_Login.urp ./lib/uru3/Bootstrap/test/Modal.urp ./lib/uru3/Bootstrap/test/Narrow.urp ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-compet/Compet.urp ./lib/urweb-xmlw/test/XMLW1.urp
+./.cake3/tmp___HomePage_in_1: ./HomePage.ur ./HomePage.urs ./Makefile ./autogen/Slides_Minsk_2014_pdf.ur ./autogen/Slides_Minsk_2014_pdf_c.h ./autogen/Slides_Minsk_2014_pdf_c.o ./lib/oilprice/Oilprice.urp ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.urp ./lib/uru3/Bootstrap/test/B3_Login.urp ./lib/uru3/Bootstrap/test/Modal.urp ./lib/uru3/Bootstrap/test/Narrow.urp ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-compet/Compet.urp ./lib/urweb-etab/Etab.urp ./lib/urweb-xmlw/test/XMLW1.urp
 	( \
+	echo database\ dbname\=HomePage  ;\
 	echo debug  ;\
 	echo library\ \.\/lib\/urweb\-compet\/Compet  ;\
 	echo library\ \.\/lib\/urweb\-callback\/demo\/Demo2  ;\
@@ -34,53 +36,88 @@ UWVER = $(shell $(URWEB) -version)
 	echo library\ \.\/lib\/uru3\/Bootstrap\/test\/Narrow  ;\
 	echo library\ \.\/lib\/urweb\-xmlw\/test\/XMLW1  ;\
 	echo library\ \.\/lib\/oilprice\/Oilprice  ;\
+	echo library\ \.\/lib\/urweb\-etab\/Etab  ;\
 	echo sql\ \.\/HomePage\.sql  ;\
-	echo database\ dbname\=HomePage  ;\
 	echo rewrite\ all\ HomePage\/main  ;\
 	echo ffi\ \.\/autogen\/Slides\_Minsk\_2014\_pdf\_c  ;\
 	echo include\ \.\/autogen\/Slides\_Minsk\_2014\_pdf\_c\.h  ;\
 	echo link\ \.\/autogen\/Slides\_Minsk\_2014\_pdf\_c\.o  ;\
 	) > ./.cake3/tmp___HomePage_in_1
-./.cake3/tmp___lib_oilprice_Oilprice_in_2: ./Makefile ./lib/oilprice/Oilprice.ur ./lib/oilprice/Oilprice.urs ./lib/oilprice/autogen/Oilprice_css.ur ./lib/oilprice/autogen/Oilprice_css_c.h ./lib/oilprice/autogen/Oilprice_css_c.o ./lib/oilprice/autogen/favicon_ico.ur ./lib/oilprice/autogen/favicon_ico_c.h ./lib/oilprice/autogen/favicon_ico_c.o ./lib/oilprice/autogen/flag_ru_gif.ur ./lib/oilprice/autogen/flag_ru_gif_c.h ./lib/oilprice/autogen/flag_ru_gif_c.o ./lib/oilprice/autogen/flag_uk_gif.ur ./lib/oilprice/autogen/flag_uk_gif_c.h ./lib/oilprice/autogen/flag_uk_gif_c.o ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/BootstrapMisc/lib.urp ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp ./lib/urweb-soup/lib.urp ./lib/urweb-xmlw/lib.urp
+./.cake3/tmp___lib_urweb_etab_Etab_in_2: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/urweb-captcha/lib.urp ./lib/urweb-etab/Etab.ur ./lib/urweb-etab/Gregorian.ur ./lib/urweb-etab/autogen/Etab_css.ur ./lib/urweb-etab/autogen/Etab_css_c.h ./lib/urweb-etab/autogen/Etab_css_c.o ./lib/urweb-etab/lib/urweb-aatree/lib_aatree.urp ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp ./lib/urweb-soup/lib.urp ./lib/urweb-xmlw/lib.urp
 	( \
 	echo   ;\
-	echo \.\/autogen\/favicon\_ico  ;\
-	echo \.\/autogen\/flag\_ru\_gif  ;\
-	echo \.\/autogen\/flag\_uk\_gif  ;\
+	echo \.\/autogen\/Etab\_css  ;\
 	echo $$\/list  ;\
 	echo $$\/option  ;\
 	echo $$\/string  ;\
+	echo $$\/datetime  ;\
 	echo $$\/char  ;\
-	echo \.\/autogen\/Oilprice\_css  ;\
-	echo \.\/Oilprice  ;\
-	) > ./.cake3/tmp___lib_oilprice_Oilprice_in_2
-./.cake3/tmp___lib_oilprice_Oilprice_in_1: ./Makefile ./lib/oilprice/Oilprice.ur ./lib/oilprice/Oilprice.urs ./lib/oilprice/autogen/Oilprice_css.ur ./lib/oilprice/autogen/Oilprice_css_c.h ./lib/oilprice/autogen/Oilprice_css_c.o ./lib/oilprice/autogen/favicon_ico.ur ./lib/oilprice/autogen/favicon_ico_c.h ./lib/oilprice/autogen/favicon_ico_c.o ./lib/oilprice/autogen/flag_ru_gif.ur ./lib/oilprice/autogen/flag_ru_gif_c.h ./lib/oilprice/autogen/flag_ru_gif_c.o ./lib/oilprice/autogen/flag_uk_gif.ur ./lib/oilprice/autogen/flag_uk_gif_c.h ./lib/oilprice/autogen/flag_uk_gif_c.o ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/BootstrapMisc/lib.urp ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp ./lib/urweb-soup/lib.urp ./lib/urweb-xmlw/lib.urp
+	echo \.\/Gregorian  ;\
+	echo \.\/Etab  ;\
+	) > ./.cake3/tmp___lib_urweb_etab_Etab_in_2
+./.cake3/tmp___lib_urweb_etab_Etab_in_1: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/urweb-captcha/lib.urp ./lib/urweb-etab/Etab.ur ./lib/urweb-etab/Gregorian.ur ./lib/urweb-etab/autogen/Etab_css.ur ./lib/urweb-etab/autogen/Etab_css_c.h ./lib/urweb-etab/autogen/Etab_css_c.o ./lib/urweb-etab/lib/urweb-aatree/lib_aatree.urp ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp ./lib/urweb-soup/lib.urp ./lib/urweb-xmlw/lib.urp
 	( \
-	echo sql\ \.\/Oilprice\.sql  ;\
-	echo database\ dbname\=Oilprice  ;\
+	echo database\ dbname\=Etab  ;\
+	echo sql\ \.\/Etab\.sql  ;\
+	echo allow\ mime\ text\/javascript  ;\
 	echo allow\ mime\ text\/css  ;\
-	echo allow\ url\ https\:\/\/github\.com\/grwlf\/oilprice\*  ;\
-	echo allow\ url\ http\:\/\/www\.rg\.ru\*  ;\
-	echo allow\ url\ http\:\/\/www\.cbr\.ru\*  ;\
-	echo library\ \.\.\/\.\.\/lib\/uru3\/Bootstrap\/  ;\
-	echo library\ \.\.\/\.\.\/lib\/uru3\/BootstrapMisc\/  ;\
+	echo allow\ mime\ image\/jpeg  ;\
+	echo allow\ mime\ image\/png  ;\
+	echo allow\ mime\ image\/gif  ;\
+	echo allow\ mime\ application\/octet\-stream  ;\
+	echo allow\ url\ https\:\/\/github\.com\/grwlf\/urweb\-etab\*  ;\
+	echo allow\ url\ http\:\/\/www\.bowmania\.ru\/forum\/\*  ;\
+	echo allow\ url\ http\:\/\/www\.archery\.su\/\*  ;\
 	echo library\ \.\.\/\.\.\/lib\/urweb\-monad\-pack\/  ;\
 	echo library\ \.\.\/\.\.\/lib\/urweb\-prelude\/  ;\
-	echo library\ \.\.\/\.\.\/lib\/urweb\-xmlw\/  ;\
+	echo library\ \.\.\/\.\.\/lib\/uru3\/Bootstrap\/  ;\
 	echo library\ \.\.\/\.\.\/lib\/urweb\-soup\/  ;\
-	echo ffi\ \.\/autogen\/favicon\_ico\_c  ;\
-	echo include\ \.\/autogen\/favicon\_ico\_c\.h  ;\
-	echo link\ \.\/autogen\/favicon\_ico\_c\.o  ;\
-	echo ffi\ \.\/autogen\/flag\_ru\_gif\_c  ;\
-	echo include\ \.\/autogen\/flag\_ru\_gif\_c\.h  ;\
-	echo link\ \.\/autogen\/flag\_ru\_gif\_c\.o  ;\
-	echo ffi\ \.\/autogen\/flag\_uk\_gif\_c  ;\
-	echo include\ \.\/autogen\/flag\_uk\_gif\_c\.h  ;\
-	echo link\ \.\/autogen\/flag\_uk\_gif\_c\.o  ;\
-	echo ffi\ \.\/autogen\/Oilprice\_css\_c  ;\
-	echo include\ \.\/autogen\/Oilprice\_css\_c\.h  ;\
-	echo link\ \.\/autogen\/Oilprice\_css\_c\.o  ;\
-	) > ./.cake3/tmp___lib_oilprice_Oilprice_in_1
+	echo library\ \.\.\/\.\.\/lib\/urweb\-xmlw\/  ;\
+	echo library\ \.\.\/\.\.\/lib\/urweb\-captcha\/  ;\
+	echo library\ \.\/lib\/urweb\-aatree\/lib\_aatree  ;\
+	echo safeGet\ Etab\/register\_user  ;\
+	echo ffi\ \.\/autogen\/Etab\_css\_c  ;\
+	echo include\ \.\/autogen\/Etab\_css\_c\.h  ;\
+	echo link\ \.\/autogen\/Etab\_css\_c\.o  ;\
+	) > ./.cake3/tmp___lib_urweb_etab_Etab_in_1
+./.cake3/tmp___lib_urweb_captcha_lib_in_2: ./Makefile ./lib/urweb-captcha/Captcha.ur ./lib/urweb-captcha/Captcha_ffi.h ./lib/urweb-captcha/Captcha_ffi.o ./lib/urweb-captcha/lib/captcha/libcaptcha.a
+	( \
+	echo   ;\
+	echo \.\/Captcha  ;\
+	) > ./.cake3/tmp___lib_urweb_captcha_lib_in_2
+./.cake3/tmp___lib_urweb_captcha_lib_in_1: ./Makefile ./lib/urweb-captcha/Captcha.ur ./lib/urweb-captcha/Captcha_ffi.h ./lib/urweb-captcha/Captcha_ffi.o ./lib/urweb-captcha/lib/captcha/libcaptcha.a
+	( \
+	echo ffi\ \.\/Captcha\_ffi  ;\
+	echo include\ \.\/Captcha\_ffi\.h  ;\
+	echo link\ \.\/Captcha\_ffi\.o  ;\
+	echo link\ \.\/lib\/captcha\/libcaptcha\.a  ;\
+	) > ./.cake3/tmp___lib_urweb_captcha_lib_in_1
+./lib/urweb-captcha/lib/captcha/libcaptcha.a: ./Makefile ./lib/urweb-captcha/lib/captcha/Makefile
+	make -C lib/urweb-captcha/lib/captcha
+	touch -c ./lib/urweb-captcha/lib/captcha/libcaptcha.a
+./lib/urweb-captcha/lib/captcha/Makefile: ./Makefile
+	git -C lib/urweb-captcha submodule update --init
+	git -C lib/urweb-captcha/lib/captcha checkout -f
+	touch -c ./lib/urweb-captcha/lib/captcha/Makefile
+./.cake3/tmp___lib_urweb_xmlw_lib_in_2: ./Makefile ./lib/urweb-monad-pack/lib.urp ./lib/urweb-xmlw/XMLW.ur
+	( \
+	echo   ;\
+	echo \.\/XMLW  ;\
+	) > ./.cake3/tmp___lib_urweb_xmlw_lib_in_2
+./.cake3/tmp___lib_urweb_xmlw_lib_in_1: ./Makefile ./lib/urweb-monad-pack/lib.urp ./lib/urweb-xmlw/XMLW.ur
+	( \
+	echo library\ \.\.\/\.\.\/lib\/urweb\-monad\-pack\/  ;\
+	) > ./.cake3/tmp___lib_urweb_xmlw_lib_in_1
+./.cake3/tmp___lib_urweb_monad_pack_lib_in_2: ./Makefile ./lib/urweb-monad-pack/error.ur ./lib/urweb-monad-pack/identity.ur ./lib/urweb-monad-pack/pure.ur ./lib/urweb-monad-pack/state.ur
+	( \
+	echo   ;\
+	echo \.\/error  ;\
+	echo \.\/state  ;\
+	echo \.\/identity  ;\
+	echo \.\/pure  ;\
+	) > ./.cake3/tmp___lib_urweb_monad_pack_lib_in_2
+./.cake3/tmp___lib_urweb_monad_pack_lib_in_1: ./Makefile ./lib/urweb-monad-pack/error.ur ./lib/urweb-monad-pack/identity.ur ./lib/urweb-monad-pack/pure.ur ./lib/urweb-monad-pack/state.ur
+	echo -n > ./.cake3/tmp___lib_urweb_monad_pack_lib_in_1
 ./.cake3/tmp___lib_urweb_soup_lib_in_2: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Uru/lib.urp ./lib/urweb-prelude/lib.urp ./lib/urweb-soup/Analytics.h ./lib/urweb-soup/Analytics.o ./lib/urweb-soup/Soup.ur ./lib/urweb-soup/autogen/Soup_css.ur ./lib/urweb-soup/autogen/Soup_css_c.h ./lib/urweb-soup/autogen/Soup_css_c.o
 	( \
 	echo   ;\
@@ -98,10 +135,11 @@ UWVER = $(shell $(URWEB) -version)
 	echo ffi\ \.\/autogen\/Soup\_css\_c  ;\
 	echo include\ \.\/autogen\/Soup\_css\_c\.h  ;\
 	echo link\ \.\/autogen\/Soup\_css\_c\.o  ;\
-	echo ffi\ \.\/Analytics  ;\
-	echo include\ \.\/Analytics\.h  ;\
 	echo link\ \.\/Analytics\.o  ;\
 	echo link\ \-lstdc\+\+  ;\
+	echo ffi\ \.\/Analytics  ;\
+	echo ffi\ \.\/HTML5Tags  ;\
+	echo include\ \.\/Analytics\.h  ;\
 	) > ./.cake3/tmp___lib_urweb_soup_lib_in_1
 ./.cake3/tmp___lib_urweb_prelude_lib_in_2: ./Makefile ./lib/urweb-prelude/src/Prelude.ur
 	( \
@@ -124,7 +162,7 @@ UWVER = $(shell $(URWEB) -version)
 	echo include\ \.\/Script\.h  ;\
 	echo link\ \.\/Script\.o  ;\
 	) > ./.cake3/tmp___lib_uru3_Uru_lib_in_1
-./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2: ./Makefile ./lib/uru3/Bootstrap/Bootstrap.ur ./lib/uru3/Bootstrap/Bootstrap.urs ./lib/uru3/Bootstrap/FormSignin.ur ./lib/uru3/Bootstrap/autogen/FormSignin_css.ur ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.h ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.o ./lib/uru3/Bootstrap/autogen/Tooltip_js.ur ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.h ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_css.ur ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js.ur ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css.ur ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o ./lib/uru3/JQuery/lib.urp ./lib/uru3/Uru/lib.urp
+./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2: ./Makefile ./lib/uru3/Bootstrap/Bootstrap.ur ./lib/uru3/Bootstrap/BootstrapStyles.ur ./lib/uru3/Bootstrap/FormSignin.ur ./lib/uru3/Bootstrap/autogen/FormSignin_css.ur ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.h ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.o ./lib/uru3/Bootstrap/autogen/Tooltip_js.ur ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.h ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_css.ur ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js.ur ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css.ur ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o ./lib/uru3/JQuery/lib.urp ./lib/uru3/Uru/lib.urp
 	( \
 	echo   ;\
 	echo \.\/autogen\/Tooltip\_js  ;\
@@ -136,13 +174,14 @@ UWVER = $(shell $(URWEB) -version)
 	echo \.\/autogen\/bootstrap\_theme\_css  ;\
 	echo \.\/autogen\/bootstrap\_min\_js  ;\
 	echo \.\/autogen\/FormSignin\_css  ;\
+	echo \.\/BootstrapStyles  ;\
 	echo \.\/Bootstrap  ;\
 	echo \.\/FormSignin  ;\
 	) > ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2
-./.cake3/tmp___lib_uru3_Bootstrap_lib_in_1: ./Makefile ./lib/uru3/Bootstrap/Bootstrap.ur ./lib/uru3/Bootstrap/Bootstrap.urs ./lib/uru3/Bootstrap/FormSignin.ur ./lib/uru3/Bootstrap/autogen/FormSignin_css.ur ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.h ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.o ./lib/uru3/Bootstrap/autogen/Tooltip_js.ur ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.h ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_css.ur ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js.ur ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css.ur ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o ./lib/uru3/JQuery/lib.urp ./lib/uru3/Uru/lib.urp
+./.cake3/tmp___lib_uru3_Bootstrap_lib_in_1: ./Makefile ./lib/uru3/Bootstrap/Bootstrap.ur ./lib/uru3/Bootstrap/BootstrapStyles.ur ./lib/uru3/Bootstrap/FormSignin.ur ./lib/uru3/Bootstrap/autogen/FormSignin_css.ur ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.h ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.o ./lib/uru3/Bootstrap/autogen/Tooltip_js.ur ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.h ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_css.ur ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js.ur ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css.ur ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.h ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff.ur ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.h ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o ./lib/uru3/JQuery/lib.urp ./lib/uru3/Uru/lib.urp
 	( \
-	echo rewrite\ style\ Bootstrap\/bs3\_table\ table  ;\
-	echo rewrite\ style\ Bootstrap\/\*\ \[\-\]  ;\
+	echo rewrite\ style\ BootstrapStyles\/bs3\_table\ table  ;\
+	echo rewrite\ style\ BootstrapStyles\/\*\ \[\-\]  ;\
 	echo ffi\ \.\/NavTag  ;\
 	echo ffi\ \.\/autogen\/Tooltip\_js\_js  ;\
 	echo ffi\ \.\/autogen\/Tooltip\_js\_c  ;\
@@ -189,25 +228,48 @@ UWVER = $(shell $(URWEB) -version)
 	echo include\ \.\/autogen\/jquery\_1\_9\_1\_js\_c\.h  ;\
 	echo link\ \.\/autogen\/jquery\_1\_9\_1\_js\_c\.o  ;\
 	) > ./.cake3/tmp___lib_uru3_JQuery_lib_in_1
-./.cake3/tmp___lib_urweb_xmlw_lib_in_2: ./Makefile ./lib/urweb-monad-pack/lib.urp ./lib/urweb-xmlw/XMLW.ur
+./lib/urweb-etab/lib/urweb-aatree/lib/lib_bits/src/c/Bits.o: ./Makefile ./lib/urweb-etab/lib/urweb-aatree/lib/lib_bits/src/c/Bits.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDEDIR)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(UWCC) -c -o ./lib/urweb-etab/lib/urweb-aatree/lib/lib_bits/src/c/Bits.o ./lib/urweb-etab/lib/urweb-aatree/lib/lib_bits/src/c/Bits.c
+./.cake3/tmp___lib_oilprice_Oilprice_in_2: ./Makefile ./lib/oilprice/Oilprice.ur ./lib/oilprice/Oilprice.urs ./lib/oilprice/autogen/Oilprice_css.ur ./lib/oilprice/autogen/Oilprice_css_c.h ./lib/oilprice/autogen/Oilprice_css_c.o ./lib/oilprice/autogen/favicon_ico.ur ./lib/oilprice/autogen/favicon_ico_c.h ./lib/oilprice/autogen/favicon_ico_c.o ./lib/oilprice/autogen/flag_ru_gif.ur ./lib/oilprice/autogen/flag_ru_gif_c.h ./lib/oilprice/autogen/flag_ru_gif_c.o ./lib/oilprice/autogen/flag_uk_gif.ur ./lib/oilprice/autogen/flag_uk_gif_c.h ./lib/oilprice/autogen/flag_uk_gif_c.o ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/BootstrapMisc/lib.urp ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp ./lib/urweb-soup/lib.urp ./lib/urweb-xmlw/lib.urp
 	( \
 	echo   ;\
-	echo \.\/XMLW  ;\
-	) > ./.cake3/tmp___lib_urweb_xmlw_lib_in_2
-./.cake3/tmp___lib_urweb_xmlw_lib_in_1: ./Makefile ./lib/urweb-monad-pack/lib.urp ./lib/urweb-xmlw/XMLW.ur
+	echo \.\/autogen\/favicon\_ico  ;\
+	echo \.\/autogen\/flag\_ru\_gif  ;\
+	echo \.\/autogen\/flag\_uk\_gif  ;\
+	echo $$\/list  ;\
+	echo $$\/option  ;\
+	echo $$\/string  ;\
+	echo $$\/char  ;\
+	echo \.\/autogen\/Oilprice\_css  ;\
+	echo \.\/Oilprice  ;\
+	) > ./.cake3/tmp___lib_oilprice_Oilprice_in_2
+./.cake3/tmp___lib_oilprice_Oilprice_in_1: ./Makefile ./lib/oilprice/Oilprice.ur ./lib/oilprice/Oilprice.urs ./lib/oilprice/autogen/Oilprice_css.ur ./lib/oilprice/autogen/Oilprice_css_c.h ./lib/oilprice/autogen/Oilprice_css_c.o ./lib/oilprice/autogen/favicon_ico.ur ./lib/oilprice/autogen/favicon_ico_c.h ./lib/oilprice/autogen/favicon_ico_c.o ./lib/oilprice/autogen/flag_ru_gif.ur ./lib/oilprice/autogen/flag_ru_gif_c.h ./lib/oilprice/autogen/flag_ru_gif_c.o ./lib/oilprice/autogen/flag_uk_gif.ur ./lib/oilprice/autogen/flag_uk_gif_c.h ./lib/oilprice/autogen/flag_uk_gif_c.o ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/BootstrapMisc/lib.urp ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp ./lib/urweb-soup/lib.urp ./lib/urweb-xmlw/lib.urp
 	( \
+	echo database\ dbname\=Oilprice  ;\
+	echo sql\ \.\/Oilprice\.sql  ;\
+	echo allow\ mime\ text\/css  ;\
+	echo allow\ url\ https\:\/\/github\.com\/grwlf\/oilprice\*  ;\
+	echo allow\ url\ http\:\/\/www\.rg\.ru\*  ;\
+	echo allow\ url\ http\:\/\/www\.cbr\.ru\*  ;\
+	echo library\ \.\.\/\.\.\/lib\/uru3\/Bootstrap\/  ;\
+	echo library\ \.\.\/\.\.\/lib\/uru3\/BootstrapMisc\/  ;\
 	echo library\ \.\.\/\.\.\/lib\/urweb\-monad\-pack\/  ;\
-	) > ./.cake3/tmp___lib_urweb_xmlw_lib_in_1
-./.cake3/tmp___lib_urweb_monad_pack_lib_in_2: ./Makefile ./lib/urweb-monad-pack/error.ur ./lib/urweb-monad-pack/identity.ur ./lib/urweb-monad-pack/pure.ur ./lib/urweb-monad-pack/state.ur
-	( \
-	echo   ;\
-	echo \.\/error  ;\
-	echo \.\/state  ;\
-	echo \.\/identity  ;\
-	echo \.\/pure  ;\
-	) > ./.cake3/tmp___lib_urweb_monad_pack_lib_in_2
-./.cake3/tmp___lib_urweb_monad_pack_lib_in_1: ./Makefile ./lib/urweb-monad-pack/error.ur ./lib/urweb-monad-pack/identity.ur ./lib/urweb-monad-pack/pure.ur ./lib/urweb-monad-pack/state.ur
-	echo -n > ./.cake3/tmp___lib_urweb_monad_pack_lib_in_1
+	echo library\ \.\.\/\.\.\/lib\/urweb\-prelude\/  ;\
+	echo library\ \.\.\/\.\.\/lib\/urweb\-xmlw\/  ;\
+	echo library\ \.\.\/\.\.\/lib\/urweb\-soup\/  ;\
+	echo ffi\ \.\/autogen\/favicon\_ico\_c  ;\
+	echo include\ \.\/autogen\/favicon\_ico\_c\.h  ;\
+	echo link\ \.\/autogen\/favicon\_ico\_c\.o  ;\
+	echo ffi\ \.\/autogen\/flag\_ru\_gif\_c  ;\
+	echo include\ \.\/autogen\/flag\_ru\_gif\_c\.h  ;\
+	echo link\ \.\/autogen\/flag\_ru\_gif\_c\.o  ;\
+	echo ffi\ \.\/autogen\/flag\_uk\_gif\_c  ;\
+	echo include\ \.\/autogen\/flag\_uk\_gif\_c\.h  ;\
+	echo link\ \.\/autogen\/flag\_uk\_gif\_c\.o  ;\
+	echo ffi\ \.\/autogen\/Oilprice\_css\_c  ;\
+	echo include\ \.\/autogen\/Oilprice\_css\_c\.h  ;\
+	echo link\ \.\/autogen\/Oilprice\_css\_c\.o  ;\
+	) > ./.cake3/tmp___lib_oilprice_Oilprice_in_1
 ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_2: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/BootstrapMisc/BootstrapMisc.ur ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js.ur ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.h ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css.ur ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.h ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js.ur ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.h ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.o ./lib/uru3/Uru/lib.urp
 	( \
 	echo   ;\
@@ -336,8 +398,8 @@ UWVER = $(shell $(URWEB) -version)
 	) > ./.cake3/tmp___lib_urweb_callback_demo_Demo2_in_2
 ./.cake3/tmp___lib_urweb_callback_demo_Demo2_in_1: ./Makefile ./lib/urweb-callback/demo/Demo2.ur ./lib/urweb-callback/demo/Demo2.urs ./lib/urweb-callback/lib.urp
 	( \
-	echo sql\ \.\.\/demo\/Demo2\.sql  ;\
 	echo database\ dbname\=Demo2  ;\
+	echo sql\ \.\.\/demo\/Demo2\.sql  ;\
 	echo safeGet\ Demo2\/main  ;\
 	echo safeGet\ Demo2\/monitor  ;\
 	echo allow\ env\ PING  ;\
@@ -355,10 +417,10 @@ UWVER = $(shell $(URWEB) -version)
 	( \
 	echo ffi\ \.\/CallbackFFI  ;\
 	echo include\ \.\/CallbackFFI\.h  ;\
-	echo safeGet\ Callback\/Default\/callback  ;\
-	echo safeGet\ CallbackNotify\/Default\/C\/callback  ;\
 	echo link\ \.\/CallbackFFI\.o  ;\
 	echo link\ \-lstdc\+\+  ;\
+	echo safeGet\ Callback\/Default\/callback  ;\
+	echo safeGet\ CallbackNotify\/Default\/C\/callback  ;\
 	) > ./.cake3/tmp___lib_urweb_callback_lib_in_1
 ./.cake3/tmp___lib_urweb_compet_Compet_in_2: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/urweb-compet/autogen/Compet_css.ur ./lib/urweb-compet/autogen/Compet_css_c.h ./lib/urweb-compet/autogen/Compet_css_c.o ./lib/urweb-compet/src/Compet.ur ./lib/urweb-compet/src/Compet.urs ./lib/urweb-compet/src/DragTable.ur ./lib/urweb-compet/src/StyleSoup.ur ./lib/urweb-compet/src/XmlGen.ur ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp
 	( \
@@ -374,8 +436,8 @@ UWVER = $(shell $(URWEB) -version)
 	) > ./.cake3/tmp___lib_urweb_compet_Compet_in_2
 ./.cake3/tmp___lib_urweb_compet_Compet_in_1: ./Makefile ./lib/uru3/Bootstrap/lib.urp ./lib/urweb-compet/autogen/Compet_css.ur ./lib/urweb-compet/autogen/Compet_css_c.h ./lib/urweb-compet/autogen/Compet_css_c.o ./lib/urweb-compet/src/Compet.ur ./lib/urweb-compet/src/Compet.urs ./lib/urweb-compet/src/DragTable.ur ./lib/urweb-compet/src/StyleSoup.ur ./lib/urweb-compet/src/XmlGen.ur ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp
 	( \
-	echo sql\ \.\/Compet\.sql  ;\
 	echo database\ dbname\=Compet  ;\
+	echo sql\ \.\/Compet\.sql  ;\
 	echo allow\ mime\ text\/javascript  ;\
 	echo allow\ mime\ text\/css  ;\
 	echo allow\ mime\ image\/jpeg  ;\
@@ -403,20 +465,23 @@ UWVER = $(shell $(URWEB) -version)
 	psql -f ./HomePage.sql HomePage
 	touch ./HomePage.db
 .INTERMEDIATE: ./.fix-multy1
-./.fix-multy1: ./HomePage.urp ./Makefile $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms postgres $(UWFLAGS) ./HomePage
+./.fix-multy1: ./HomePage.urp ./Makefile $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms postgres $(UWFLAGS) ./HomePage
 .INTERMEDIATE: ./.fix-multy2
-./.fix-multy2: ./Makefile ./lib/oilprice/Oilprice.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms postgres $(UWFLAGS) ./lib/oilprice/Oilprice
+./.fix-multy2: ./Makefile ./lib/oilprice/Oilprice.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms postgres $(UWFLAGS) ./lib/oilprice/Oilprice
 .INTERMEDIATE: ./.fix-multy3
-./.fix-multy3: ./Makefile ./lib/urweb-callback/demo/Demo2.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms postgres $(UWFLAGS) ./lib/urweb-callback/demo/Demo2
+./.fix-multy3: ./Makefile ./lib/urweb-callback/demo/Demo2.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms postgres $(UWFLAGS) ./lib/urweb-callback/demo/Demo2
 .INTERMEDIATE: ./.fix-multy4
-./.fix-multy4: ./Makefile ./lib/urweb-compet/Compet.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms postgres $(UWFLAGS) ./lib/urweb-compet/Compet
+./.fix-multy4: ./Makefile ./lib/urweb-compet/Compet.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms postgres $(UWFLAGS) ./lib/urweb-compet/Compet
 .INTERMEDIATE: ./.fix-multy5
-./.fix-multy5: ./Makefile ./lib/urweb-xmlw/test/XMLW1.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms sqlite $(UWFLAGS) ./lib/urweb-xmlw/test/XMLW1
+./.fix-multy5: ./Makefile ./lib/urweb-etab/Etab.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms postgres $(UWFLAGS) ./lib/urweb-etab/Etab
+.INTERMEDIATE: ./.fix-multy6
+./.fix-multy6: ./Makefile ./lib/urweb-xmlw/test/XMLW1.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms sqlite $(UWFLAGS) ./lib/urweb-xmlw/test/XMLW1
 ./HomePage.exe: ./.fix-multy1
 ./HomePage.sql: ./.fix-multy1
 ./HomePage.urp: ./.cake3/tmp___HomePage_in_1 ./.cake3/tmp___HomePage_in_2 ./Makefile ./autogen/Slides_Minsk_2014_pdf.urp.in
@@ -424,7 +489,7 @@ UWVER = $(shell $(URWEB) -version)
 	cat ./autogen/Slides_Minsk_2014_pdf.urp.in >> ./HomePage.urp
 	cat ./.cake3/tmp___HomePage_in_2 >> ./HomePage.urp
 ./autogen/Slides_Minsk_2014_pdf_c.o: ./Makefile ./autogen/Slides_Minsk_2014_pdf_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./autogen/Slides_Minsk_2014_pdf_c.o ./autogen/Slides_Minsk_2014_pdf_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./autogen/Slides_Minsk_2014_pdf_c.o ./autogen/Slides_Minsk_2014_pdf_c.c
 ./lib/oilprice/Oilprice.exe: ./.fix-multy2
 ./lib/oilprice/Oilprice.sql: ./.fix-multy2
 ./lib/oilprice/Oilprice.urp: ./.cake3/tmp___lib_oilprice_Oilprice_in_1 ./.cake3/tmp___lib_oilprice_Oilprice_in_2 ./Makefile ./lib/oilprice/autogen/Oilprice_css.urp.in ./lib/oilprice/autogen/favicon_ico.urp.in ./lib/oilprice/autogen/flag_ru_gif.urp.in ./lib/oilprice/autogen/flag_uk_gif.urp.in
@@ -432,100 +497,100 @@ UWVER = $(shell $(URWEB) -version)
 	cat ./lib/oilprice/autogen/Oilprice_css.urp.in ./lib/oilprice/autogen/flag_uk_gif.urp.in ./lib/oilprice/autogen/flag_ru_gif.urp.in ./lib/oilprice/autogen/favicon_ico.urp.in >> ./lib/oilprice/Oilprice.urp
 	cat ./.cake3/tmp___lib_oilprice_Oilprice_in_2 >> ./lib/oilprice/Oilprice.urp
 ./lib/oilprice/autogen/Oilprice_css_c.o: ./Makefile ./lib/oilprice/autogen/Oilprice_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/oilprice/autogen/Oilprice_css_c.o ./lib/oilprice/autogen/Oilprice_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/oilprice/autogen/Oilprice_css_c.o ./lib/oilprice/autogen/Oilprice_css_c.c
 ./lib/oilprice/autogen/favicon_ico_c.o: ./Makefile ./lib/oilprice/autogen/favicon_ico_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/oilprice/autogen/favicon_ico_c.o ./lib/oilprice/autogen/favicon_ico_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/oilprice/autogen/favicon_ico_c.o ./lib/oilprice/autogen/favicon_ico_c.c
 ./lib/oilprice/autogen/flag_ru_gif_c.o: ./Makefile ./lib/oilprice/autogen/flag_ru_gif_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/oilprice/autogen/flag_ru_gif_c.o ./lib/oilprice/autogen/flag_ru_gif_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/oilprice/autogen/flag_ru_gif_c.o ./lib/oilprice/autogen/flag_ru_gif_c.c
 ./lib/oilprice/autogen/flag_uk_gif_c.o: ./Makefile ./lib/oilprice/autogen/flag_uk_gif_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/oilprice/autogen/flag_uk_gif_c.o ./lib/oilprice/autogen/flag_uk_gif_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/oilprice/autogen/flag_uk_gif_c.o ./lib/oilprice/autogen/flag_uk_gif_c.c
 ./lib/uru3/Bootstrap/autogen/B1_css_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/B1_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/B1_css_c.o ./lib/uru3/Bootstrap/autogen/B1_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/B1_css_c.o ./lib/uru3/Bootstrap/autogen/B1_css_c.c
 ./lib/uru3/Bootstrap/autogen/B2_css_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/B2_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/B2_css_c.o ./lib/uru3/Bootstrap/autogen/B2_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/B2_css_c.o ./lib/uru3/Bootstrap/autogen/B2_css_c.c
 ./lib/uru3/Bootstrap/autogen/B3_Login_css_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/B3_Login_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/B3_Login_css_c.o ./lib/uru3/Bootstrap/autogen/B3_Login_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/B3_Login_css_c.o ./lib/uru3/Bootstrap/autogen/B3_Login_css_c.c
 ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.o ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.o ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.c
 ./lib/uru3/Bootstrap/autogen/Modal_css_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/Modal_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/Modal_css_c.o ./lib/uru3/Bootstrap/autogen/Modal_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/Modal_css_c.o ./lib/uru3/Bootstrap/autogen/Modal_css_c.c
 ./lib/uru3/Bootstrap/autogen/Narrow_css_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/Narrow_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/Narrow_css_c.o ./lib/uru3/Bootstrap/autogen/Narrow_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/Narrow_css_c.o ./lib/uru3/Bootstrap/autogen/Narrow_css_c.c
 ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.o ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.o ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.c
 ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.c
 ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.c
 ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.c
 ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.c
 ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.c
 ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.c
 ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.c
 ./lib/uru3/Bootstrap/autogen/holder_js_c.o: ./Makefile ./lib/uru3/Bootstrap/autogen/holder_js_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/holder_js_c.o ./lib/uru3/Bootstrap/autogen/holder_js_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/Bootstrap/autogen/holder_js_c.o ./lib/uru3/Bootstrap/autogen/holder_js_c.c
 ./lib/uru3/Bootstrap/lib.urp: ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/FormSignin_css.urp.in ./lib/uru3/Bootstrap/autogen/Tooltip_js.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_css.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_min_js.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_1 > ./lib/uru3/Bootstrap/lib.urp
 	cat ./lib/uru3/Bootstrap/autogen/FormSignin_css.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_min_js.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css.urp.in ./lib/uru3/Bootstrap/autogen/bootstrap_css.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg.urp.in ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot.urp.in ./lib/uru3/Bootstrap/autogen/Tooltip_js.urp.in >> ./lib/uru3/Bootstrap/lib.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2 >> ./lib/uru3/Bootstrap/lib.urp
-./lib/uru3/Bootstrap/test/B1.exe: ./Makefile ./lib/uru3/Bootstrap/test/B1.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/B1
+./lib/uru3/Bootstrap/test/B1.exe: ./Makefile ./lib/uru3/Bootstrap/test/B1.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/B1
 ./lib/uru3/Bootstrap/test/B1.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/B1_css.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_1 > ./lib/uru3/Bootstrap/test/B1.urp
 	cat ./lib/uru3/Bootstrap/autogen/B1_css.urp.in >> ./lib/uru3/Bootstrap/test/B1.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_2 >> ./lib/uru3/Bootstrap/test/B1.urp
-./lib/uru3/Bootstrap/test/B2.exe: ./Makefile ./lib/uru3/Bootstrap/test/B2.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/B2
+./lib/uru3/Bootstrap/test/B2.exe: ./Makefile ./lib/uru3/Bootstrap/test/B2.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/B2
 ./lib/uru3/Bootstrap/test/B2.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/B2_css.urp.in ./lib/uru3/Bootstrap/autogen/holder_js.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_1 > ./lib/uru3/Bootstrap/test/B2.urp
 	cat ./lib/uru3/Bootstrap/autogen/holder_js.urp.in ./lib/uru3/Bootstrap/autogen/B2_css.urp.in >> ./lib/uru3/Bootstrap/test/B2.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_2 >> ./lib/uru3/Bootstrap/test/B2.urp
-./lib/uru3/Bootstrap/test/B3_Login.exe: ./Makefile ./lib/uru3/Bootstrap/test/B3_Login.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/B3_Login
+./lib/uru3/Bootstrap/test/B3_Login.exe: ./Makefile ./lib/uru3/Bootstrap/test/B3_Login.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/B3_Login
 ./lib/uru3/Bootstrap/test/B3_Login.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/B3_Login_css.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_1 > ./lib/uru3/Bootstrap/test/B3_Login.urp
 	cat ./lib/uru3/Bootstrap/autogen/B3_Login_css.urp.in >> ./lib/uru3/Bootstrap/test/B3_Login.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_2 >> ./lib/uru3/Bootstrap/test/B3_Login.urp
-./lib/uru3/Bootstrap/test/Modal.exe: ./Makefile ./lib/uru3/Bootstrap/test/Modal.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/Modal
+./lib/uru3/Bootstrap/test/Modal.exe: ./Makefile ./lib/uru3/Bootstrap/test/Modal.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/Modal
 ./lib/uru3/Bootstrap/test/Modal.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/Modal_css.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_1 > ./lib/uru3/Bootstrap/test/Modal.urp
 	cat ./lib/uru3/Bootstrap/autogen/Modal_css.urp.in >> ./lib/uru3/Bootstrap/test/Modal.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_2 >> ./lib/uru3/Bootstrap/test/Modal.urp
-./lib/uru3/Bootstrap/test/Narrow.exe: ./Makefile ./lib/uru3/Bootstrap/test/Narrow.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWVER)
-	$(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/Narrow
+./lib/uru3/Bootstrap/test/Narrow.exe: ./Makefile ./lib/uru3/Bootstrap/test/Narrow.urp $(call GUARD,URWEB) $(call GUARD,UWFLAGS) $(call GUARD,UWINCLUDEDIR) $(call GUARD,UWVER)
+	C_INCLUDE_PATH=$(UWINCLUDEDIR) $(URWEB) -dbms sqlite $(UWFLAGS) ./lib/uru3/Bootstrap/test/Narrow
 ./lib/uru3/Bootstrap/test/Narrow.urp: ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_2 ./Makefile ./lib/uru3/Bootstrap/autogen/Narrow_css.urp.in
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_1 > ./lib/uru3/Bootstrap/test/Narrow.urp
 	cat ./lib/uru3/Bootstrap/autogen/Narrow_css.urp.in >> ./lib/uru3/Bootstrap/test/Narrow.urp
 	cat ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_2 >> ./lib/uru3/Bootstrap/test/Narrow.urp
 ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.o: ./Makefile ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.o ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.o ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.c
 ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.o: ./Makefile ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.c
 ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.o: ./Makefile ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.c
 ./lib/uru3/BootstrapMisc/lib.urp: ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_1 ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_2 ./Makefile ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js.urp.in ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css.urp.in ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js.urp.in
 	cat ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_1 > ./lib/uru3/BootstrapMisc/lib.urp
 	cat ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js.urp.in ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css.urp.in ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js.urp.in >> ./lib/uru3/BootstrapMisc/lib.urp
 	cat ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_2 >> ./lib/uru3/BootstrapMisc/lib.urp
 ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.o: ./Makefile ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.o ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.o ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.c
 ./lib/uru3/JQuery/lib.urp: ./.cake3/tmp___lib_uru3_JQuery_lib_in_1 ./.cake3/tmp___lib_uru3_JQuery_lib_in_2 ./Makefile ./lib/uru3/JQuery/autogen/jquery_1_9_1_js.urp.in
 	cat ./.cake3/tmp___lib_uru3_JQuery_lib_in_1 > ./lib/uru3/JQuery/lib.urp
 	cat ./lib/uru3/JQuery/autogen/jquery_1_9_1_js.urp.in >> ./lib/uru3/JQuery/lib.urp
 	cat ./.cake3/tmp___lib_uru3_JQuery_lib_in_2 >> ./lib/uru3/JQuery/lib.urp
-./lib/uru3/Uru/Script.o: ./Makefile ./lib/uru3/Uru/Script.c $(call GUARD,UWCC) $(call GUARD,UWCFLAGS) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) $(UWCFLAGS)  -o ./lib/uru3/Uru/Script.o ./lib/uru3/Uru/Script.c
+./lib/uru3/Uru/Script.o: ./Makefile ./lib/uru3/Uru/Script.c $(call GUARD,UWCC) $(call GUARD,UWCFLAGS) $(call GUARD,UWINCLUDE) $(call GUARD,UWINCLUDEDIR)
+	$(UWCC) -c -I$(UWINCLUDEDIR) -I$(UWINCLUDE) $(UWCFLAGS)  -o ./lib/uru3/Uru/Script.o ./lib/uru3/Uru/Script.c
 ./lib/uru3/Uru/lib.urp: ./.cake3/tmp___lib_uru3_Uru_lib_in_1 ./.cake3/tmp___lib_uru3_Uru_lib_in_2 ./Makefile
 	cat ./.cake3/tmp___lib_uru3_Uru_lib_in_1 > ./lib/uru3/Uru/lib.urp
 	cat ./.cake3/tmp___lib_uru3_Uru_lib_in_2 >> ./lib/uru3/Uru/lib.urp
-./lib/urweb-callback/CallbackFFI.o: ./Makefile ./lib/urweb-callback/CallbackFFI.cpp $(call GUARD,UWCFLAGS) $(call GUARD,UWCPP) $(call GUARD,UWINCLUDE)
-	$(UWCPP) -c $(UWCFLAGS) $(UWINCLUDE) -std=c++11 -o ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/CallbackFFI.cpp
+./lib/urweb-callback/CallbackFFI.o: ./Makefile ./lib/urweb-callback/CallbackFFI.cpp $(call GUARD,UWCFLAGS) $(call GUARD,UWCPP) $(call GUARD,UWINCLUDE) $(call GUARD,UWINCLUDEDIR)
+	$(UWCPP) -c $(UWCFLAGS) -I$(UWINCLUDEDIR) -I$(UWINCLUDE) -std=c++11 -o ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/CallbackFFI.cpp
 ./lib/urweb-callback/demo/Demo2.exe: ./.fix-multy3
 ./lib/urweb-callback/demo/Demo2.sql: ./.fix-multy3
 ./lib/urweb-callback/demo/Demo2.urp: ./.cake3/tmp___lib_urweb_callback_demo_Demo2_in_1 ./.cake3/tmp___lib_urweb_callback_demo_Demo2_in_2 ./Makefile
@@ -534,6 +599,11 @@ UWVER = $(shell $(URWEB) -version)
 ./lib/urweb-callback/lib.urp: ./.cake3/tmp___lib_urweb_callback_lib_in_1 ./.cake3/tmp___lib_urweb_callback_lib_in_2 ./Makefile
 	cat ./.cake3/tmp___lib_urweb_callback_lib_in_1 > ./lib/urweb-callback/lib.urp
 	cat ./.cake3/tmp___lib_urweb_callback_lib_in_2 >> ./lib/urweb-callback/lib.urp
+./lib/urweb-captcha/Captcha_ffi.o: ./Makefile ./lib/urweb-captcha/Captcha_ffi.c $(call GUARD,UWCC) $(call GUARD,UWCFLAGS) $(call GUARD,UWINCLUDE) $(call GUARD,UWINCLUDEDIR)
+	$(UWCC) -c -I$(UWINCLUDEDIR) -I$(UWINCLUDE) $(UWCFLAGS)  -o ./lib/urweb-captcha/Captcha_ffi.o ./lib/urweb-captcha/Captcha_ffi.c
+./lib/urweb-captcha/lib.urp: ./.cake3/tmp___lib_urweb_captcha_lib_in_1 ./.cake3/tmp___lib_urweb_captcha_lib_in_2 ./Makefile
+	cat ./.cake3/tmp___lib_urweb_captcha_lib_in_1 > ./lib/urweb-captcha/lib.urp
+	cat ./.cake3/tmp___lib_urweb_captcha_lib_in_2 >> ./lib/urweb-captcha/lib.urp
 ./lib/urweb-compet/Compet.exe: ./.fix-multy4
 ./lib/urweb-compet/Compet.sql: ./.fix-multy4
 ./lib/urweb-compet/Compet.urp: ./.cake3/tmp___lib_urweb_compet_Compet_in_1 ./.cake3/tmp___lib_urweb_compet_Compet_in_2 ./Makefile ./lib/urweb-compet/autogen/Compet_css.urp.in
@@ -541,17 +611,25 @@ UWVER = $(shell $(URWEB) -version)
 	cat ./lib/urweb-compet/autogen/Compet_css.urp.in >> ./lib/urweb-compet/Compet.urp
 	cat ./.cake3/tmp___lib_urweb_compet_Compet_in_2 >> ./lib/urweb-compet/Compet.urp
 ./lib/urweb-compet/autogen/Compet_css_c.o: ./Makefile ./lib/urweb-compet/autogen/Compet_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/urweb-compet/autogen/Compet_css_c.o ./lib/urweb-compet/autogen/Compet_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/urweb-compet/autogen/Compet_css_c.o ./lib/urweb-compet/autogen/Compet_css_c.c
+./lib/urweb-etab/Etab.exe: ./.fix-multy5
+./lib/urweb-etab/Etab.sql: ./.fix-multy5
+./lib/urweb-etab/Etab.urp: ./.cake3/tmp___lib_urweb_etab_Etab_in_1 ./.cake3/tmp___lib_urweb_etab_Etab_in_2 ./Makefile ./lib/urweb-etab/autogen/Etab_css.urp.in ./lib/urweb-etab/lib/urweb-aatree/lib/lib_bits/src/c/Bits.o
+	cat ./.cake3/tmp___lib_urweb_etab_Etab_in_1 > ./lib/urweb-etab/Etab.urp
+	cat ./lib/urweb-etab/autogen/Etab_css.urp.in >> ./lib/urweb-etab/Etab.urp
+	cat ./.cake3/tmp___lib_urweb_etab_Etab_in_2 >> ./lib/urweb-etab/Etab.urp
+./lib/urweb-etab/autogen/Etab_css_c.o: ./Makefile ./lib/urweb-etab/autogen/Etab_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/urweb-etab/autogen/Etab_css_c.o ./lib/urweb-etab/autogen/Etab_css_c.c
 ./lib/urweb-monad-pack/lib.urp: ./.cake3/tmp___lib_urweb_monad_pack_lib_in_1 ./.cake3/tmp___lib_urweb_monad_pack_lib_in_2 ./Makefile
 	cat ./.cake3/tmp___lib_urweb_monad_pack_lib_in_1 > ./lib/urweb-monad-pack/lib.urp
 	cat ./.cake3/tmp___lib_urweb_monad_pack_lib_in_2 >> ./lib/urweb-monad-pack/lib.urp
 ./lib/urweb-prelude/lib.urp: ./.cake3/tmp___lib_urweb_prelude_lib_in_1 ./.cake3/tmp___lib_urweb_prelude_lib_in_2 ./Makefile
 	cat ./.cake3/tmp___lib_urweb_prelude_lib_in_1 > ./lib/urweb-prelude/lib.urp
 	cat ./.cake3/tmp___lib_urweb_prelude_lib_in_2 >> ./lib/urweb-prelude/lib.urp
-./lib/urweb-soup/Analytics.o: ./Makefile ./lib/urweb-soup/Analytics.cpp $(call GUARD,UWCFLAGS) $(call GUARD,UWCPP) $(call GUARD,UWINCLUDE)
-	$(UWCPP) -c $(UWCFLAGS) $(UWINCLUDE) -std=c++11 -o ./lib/urweb-soup/Analytics.o ./lib/urweb-soup/Analytics.cpp
+./lib/urweb-soup/Analytics.o: ./Makefile ./lib/urweb-soup/Analytics.cpp $(call GUARD,UWCFLAGS) $(call GUARD,UWCPP) $(call GUARD,UWINCLUDE) $(call GUARD,UWINCLUDEDIR)
+	$(UWCPP) -c $(UWCFLAGS) -I$(UWINCLUDEDIR) -I$(UWINCLUDE) -std=c++11 -o ./lib/urweb-soup/Analytics.o ./lib/urweb-soup/Analytics.cpp
 ./lib/urweb-soup/autogen/Soup_css_c.o: ./Makefile ./lib/urweb-soup/autogen/Soup_css_c.c $(call GUARD,UWCC) $(call GUARD,UWINCLUDE)
-	$(UWCC) -c $(UWINCLUDE) -o ./lib/urweb-soup/autogen/Soup_css_c.o ./lib/urweb-soup/autogen/Soup_css_c.c
+	$(UWCC) -c -I$(UWINCLUDE) -o ./lib/urweb-soup/autogen/Soup_css_c.o ./lib/urweb-soup/autogen/Soup_css_c.c
 ./lib/urweb-soup/lib.urp: ./.cake3/tmp___lib_urweb_soup_lib_in_1 ./.cake3/tmp___lib_urweb_soup_lib_in_2 ./Makefile ./lib/urweb-soup/autogen/Soup_css.urp.in
 	cat ./.cake3/tmp___lib_urweb_soup_lib_in_1 > ./lib/urweb-soup/lib.urp
 	cat ./lib/urweb-soup/autogen/Soup_css.urp.in >> ./lib/urweb-soup/lib.urp
@@ -559,8 +637,8 @@ UWVER = $(shell $(URWEB) -version)
 ./lib/urweb-xmlw/lib.urp: ./.cake3/tmp___lib_urweb_xmlw_lib_in_1 ./.cake3/tmp___lib_urweb_xmlw_lib_in_2 ./Makefile
 	cat ./.cake3/tmp___lib_urweb_xmlw_lib_in_1 > ./lib/urweb-xmlw/lib.urp
 	cat ./.cake3/tmp___lib_urweb_xmlw_lib_in_2 >> ./lib/urweb-xmlw/lib.urp
-./lib/urweb-xmlw/test/XMLW1.exe: ./.fix-multy5
-./lib/urweb-xmlw/test/XMLW1.sql: ./.fix-multy5
+./lib/urweb-xmlw/test/XMLW1.exe: ./.fix-multy6
+./lib/urweb-xmlw/test/XMLW1.sql: ./.fix-multy6
 ./lib/urweb-xmlw/test/XMLW1.urp: ./.cake3/tmp___lib_urweb_xmlw_test_XMLW1_in_1 ./.cake3/tmp___lib_urweb_xmlw_test_XMLW1_in_2 ./Makefile
 	cat ./.cake3/tmp___lib_urweb_xmlw_test_XMLW1_in_1 > ./lib/urweb-xmlw/test/XMLW1.urp
 	cat ./.cake3/tmp___lib_urweb_xmlw_test_XMLW1_in_2 >> ./lib/urweb-xmlw/test/XMLW1.urp
@@ -582,6 +660,9 @@ $(call GUARD,UWFLAGS):
 $(call GUARD,UWINCLUDE):
 	rm -f .cake3/GUARD_UWINCLUDE_*
 	touch $@
+$(call GUARD,UWINCLUDEDIR):
+	rm -f .cake3/GUARD_UWINCLUDEDIR_*
+	touch $@
 $(call GUARD,UWVER):
 	rm -f .cake3/GUARD_UWVER_*
 	touch $@
@@ -598,10 +679,26 @@ ifneq ($(MAKECMDGOALS),clean)
 ./.cake3/tmp___HomePage_in_2: ./.fix-multy1
 .PHONY: ./.cake3/tmp___HomePage_in_1
 ./.cake3/tmp___HomePage_in_1: ./.fix-multy1
-.PHONY: ./.cake3/tmp___lib_oilprice_Oilprice_in_2
-./.cake3/tmp___lib_oilprice_Oilprice_in_2: ./.fix-multy1
-.PHONY: ./.cake3/tmp___lib_oilprice_Oilprice_in_1
-./.cake3/tmp___lib_oilprice_Oilprice_in_1: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_urweb_etab_Etab_in_2
+./.cake3/tmp___lib_urweb_etab_Etab_in_2: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_urweb_etab_Etab_in_1
+./.cake3/tmp___lib_urweb_etab_Etab_in_1: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_urweb_captcha_lib_in_2
+./.cake3/tmp___lib_urweb_captcha_lib_in_2: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_urweb_captcha_lib_in_1
+./.cake3/tmp___lib_urweb_captcha_lib_in_1: ./.fix-multy1
+.PHONY: ./lib/urweb-captcha/lib/captcha/libcaptcha.a
+./lib/urweb-captcha/lib/captcha/libcaptcha.a: ./.fix-multy1
+.PHONY: ./lib/urweb-captcha/lib/captcha/Makefile
+./lib/urweb-captcha/lib/captcha/Makefile: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_urweb_xmlw_lib_in_2
+./.cake3/tmp___lib_urweb_xmlw_lib_in_2: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_urweb_xmlw_lib_in_1
+./.cake3/tmp___lib_urweb_xmlw_lib_in_1: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_urweb_monad_pack_lib_in_2
+./.cake3/tmp___lib_urweb_monad_pack_lib_in_2: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_urweb_monad_pack_lib_in_1
+./.cake3/tmp___lib_urweb_monad_pack_lib_in_1: ./.fix-multy1
 .PHONY: ./.cake3/tmp___lib_urweb_soup_lib_in_2
 ./.cake3/tmp___lib_urweb_soup_lib_in_2: ./.fix-multy1
 .PHONY: ./.cake3/tmp___lib_urweb_soup_lib_in_1
@@ -622,14 +719,12 @@ ifneq ($(MAKECMDGOALS),clean)
 ./.cake3/tmp___lib_uru3_JQuery_lib_in_2: ./.fix-multy1
 .PHONY: ./.cake3/tmp___lib_uru3_JQuery_lib_in_1
 ./.cake3/tmp___lib_uru3_JQuery_lib_in_1: ./.fix-multy1
-.PHONY: ./.cake3/tmp___lib_urweb_xmlw_lib_in_2
-./.cake3/tmp___lib_urweb_xmlw_lib_in_2: ./.fix-multy1
-.PHONY: ./.cake3/tmp___lib_urweb_xmlw_lib_in_1
-./.cake3/tmp___lib_urweb_xmlw_lib_in_1: ./.fix-multy1
-.PHONY: ./.cake3/tmp___lib_urweb_monad_pack_lib_in_2
-./.cake3/tmp___lib_urweb_monad_pack_lib_in_2: ./.fix-multy1
-.PHONY: ./.cake3/tmp___lib_urweb_monad_pack_lib_in_1
-./.cake3/tmp___lib_urweb_monad_pack_lib_in_1: ./.fix-multy1
+.PHONY: ./lib/urweb-etab/lib/urweb-aatree/lib/lib_bits/src/c/Bits.o
+./lib/urweb-etab/lib/urweb-aatree/lib/lib_bits/src/c/Bits.o: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_oilprice_Oilprice_in_2
+./.cake3/tmp___lib_oilprice_Oilprice_in_2: ./.fix-multy1
+.PHONY: ./.cake3/tmp___lib_oilprice_Oilprice_in_1
+./.cake3/tmp___lib_oilprice_Oilprice_in_1: ./.fix-multy1
 .PHONY: ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_2
 ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_2: ./.fix-multy1
 .PHONY: ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_1
@@ -778,6 +873,10 @@ ifneq ($(MAKECMDGOALS),clean)
 ./lib/urweb-callback/demo/Demo2.urp: ./.fix-multy1
 .PHONY: ./lib/urweb-callback/lib.urp
 ./lib/urweb-callback/lib.urp: ./.fix-multy1
+.PHONY: ./lib/urweb-captcha/Captcha_ffi.o
+./lib/urweb-captcha/Captcha_ffi.o: ./.fix-multy1
+.PHONY: ./lib/urweb-captcha/lib.urp
+./lib/urweb-captcha/lib.urp: ./.fix-multy1
 .PHONY: ./lib/urweb-compet/Compet.exe
 ./lib/urweb-compet/Compet.exe: ./.fix-multy1
 .PHONY: ./lib/urweb-compet/Compet.sql
@@ -786,6 +885,14 @@ ifneq ($(MAKECMDGOALS),clean)
 ./lib/urweb-compet/Compet.urp: ./.fix-multy1
 .PHONY: ./lib/urweb-compet/autogen/Compet_css_c.o
 ./lib/urweb-compet/autogen/Compet_css_c.o: ./.fix-multy1
+.PHONY: ./lib/urweb-etab/Etab.exe
+./lib/urweb-etab/Etab.exe: ./.fix-multy1
+.PHONY: ./lib/urweb-etab/Etab.sql
+./lib/urweb-etab/Etab.sql: ./.fix-multy1
+.PHONY: ./lib/urweb-etab/Etab.urp
+./lib/urweb-etab/Etab.urp: ./.fix-multy1
+.PHONY: ./lib/urweb-etab/autogen/Etab_css_c.o
+./lib/urweb-etab/autogen/Etab_css_c.o: ./.fix-multy1
 .PHONY: ./lib/urweb-monad-pack/lib.urp
 ./lib/urweb-monad-pack/lib.urp: ./.fix-multy1
 .PHONY: ./lib/urweb-prelude/lib.urp
@@ -808,7 +915,7 @@ ifneq ($(MAKECMDGOALS),clean)
 endif
 .PHONY: ./clean
 ./clean:
-	-rm ./.cake3/tmp___HomePage_in_1 ./.cake3/tmp___HomePage_in_2 ./.cake3/tmp___lib_oilprice_Oilprice_in_1 ./.cake3/tmp___lib_oilprice_Oilprice_in_2 ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_1 ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_2 ./.cake3/tmp___lib_uru3_JQuery_lib_in_1 ./.cake3/tmp___lib_uru3_JQuery_lib_in_2 ./.cake3/tmp___lib_uru3_Uru_lib_in_1 ./.cake3/tmp___lib_uru3_Uru_lib_in_2 ./.cake3/tmp___lib_urweb_callback_demo_Demo2_in_1 ./.cake3/tmp___lib_urweb_callback_demo_Demo2_in_2 ./.cake3/tmp___lib_urweb_callback_lib_in_1 ./.cake3/tmp___lib_urweb_callback_lib_in_2 ./.cake3/tmp___lib_urweb_compet_Compet_in_1 ./.cake3/tmp___lib_urweb_compet_Compet_in_2 ./.cake3/tmp___lib_urweb_monad_pack_lib_in_1 ./.cake3/tmp___lib_urweb_monad_pack_lib_in_2 ./.cake3/tmp___lib_urweb_prelude_lib_in_1 ./.cake3/tmp___lib_urweb_prelude_lib_in_2 ./.cake3/tmp___lib_urweb_soup_lib_in_1 ./.cake3/tmp___lib_urweb_soup_lib_in_2 ./.cake3/tmp___lib_urweb_xmlw_lib_in_1 ./.cake3/tmp___lib_urweb_xmlw_lib_in_2 ./.cake3/tmp___lib_urweb_xmlw_test_XMLW1_in_1 ./.cake3/tmp___lib_urweb_xmlw_test_XMLW1_in_2 ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp ./autogen/Slides_Minsk_2014_pdf_c.o ./lib/oilprice/Oilprice.exe ./lib/oilprice/Oilprice.sql ./lib/oilprice/Oilprice.urp ./lib/oilprice/autogen/Oilprice_css_c.o ./lib/oilprice/autogen/favicon_ico_c.o ./lib/oilprice/autogen/flag_ru_gif_c.o ./lib/oilprice/autogen/flag_uk_gif_c.o ./lib/uru3/Bootstrap/autogen/B1_css_c.o ./lib/uru3/Bootstrap/autogen/B2_css_c.o ./lib/uru3/Bootstrap/autogen/B3_Login_css_c.o ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.o ./lib/uru3/Bootstrap/autogen/Modal_css_c.o ./lib/uru3/Bootstrap/autogen/Narrow_css_c.o ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o ./lib/uru3/Bootstrap/autogen/holder_js_c.o ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B1.exe ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.exe ./lib/uru3/Bootstrap/test/B2.urp ./lib/uru3/Bootstrap/test/B3_Login.exe ./lib/uru3/Bootstrap/test/B3_Login.urp ./lib/uru3/Bootstrap/test/Modal.exe ./lib/uru3/Bootstrap/test/Modal.urp ./lib/uru3/Bootstrap/test/Narrow.exe ./lib/uru3/Bootstrap/test/Narrow.urp ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.o ./lib/uru3/BootstrapMisc/lib.urp ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.o ./lib/uru3/JQuery/lib.urp ./lib/uru3/Uru/Script.o ./lib/uru3/Uru/lib.urp ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/demo/Demo2.exe ./lib/urweb-callback/demo/Demo2.sql ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-callback/lib.urp ./lib/urweb-compet/Compet.exe ./lib/urweb-compet/Compet.sql ./lib/urweb-compet/Compet.urp ./lib/urweb-compet/autogen/Compet_css_c.o ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp ./lib/urweb-soup/Analytics.o ./lib/urweb-soup/autogen/Soup_css_c.o ./lib/urweb-soup/lib.urp ./lib/urweb-xmlw/lib.urp ./lib/urweb-xmlw/test/XMLW1.exe ./lib/urweb-xmlw/test/XMLW1.sql ./lib/urweb-xmlw/test/XMLW1.urp
+	-rm ./.cake3/tmp___HomePage_in_1 ./.cake3/tmp___HomePage_in_2 ./.cake3/tmp___lib_oilprice_Oilprice_in_1 ./.cake3/tmp___lib_oilprice_Oilprice_in_2 ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_1 ./.cake3/tmp___lib_uru3_BootstrapMisc_lib_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_lib_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B1_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B2_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_B3_Login_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Modal_in_2 ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_1 ./.cake3/tmp___lib_uru3_Bootstrap_test_Narrow_in_2 ./.cake3/tmp___lib_uru3_JQuery_lib_in_1 ./.cake3/tmp___lib_uru3_JQuery_lib_in_2 ./.cake3/tmp___lib_uru3_Uru_lib_in_1 ./.cake3/tmp___lib_uru3_Uru_lib_in_2 ./.cake3/tmp___lib_urweb_callback_demo_Demo2_in_1 ./.cake3/tmp___lib_urweb_callback_demo_Demo2_in_2 ./.cake3/tmp___lib_urweb_callback_lib_in_1 ./.cake3/tmp___lib_urweb_callback_lib_in_2 ./.cake3/tmp___lib_urweb_captcha_lib_in_1 ./.cake3/tmp___lib_urweb_captcha_lib_in_2 ./.cake3/tmp___lib_urweb_compet_Compet_in_1 ./.cake3/tmp___lib_urweb_compet_Compet_in_2 ./.cake3/tmp___lib_urweb_etab_Etab_in_1 ./.cake3/tmp___lib_urweb_etab_Etab_in_2 ./.cake3/tmp___lib_urweb_monad_pack_lib_in_1 ./.cake3/tmp___lib_urweb_monad_pack_lib_in_2 ./.cake3/tmp___lib_urweb_prelude_lib_in_1 ./.cake3/tmp___lib_urweb_prelude_lib_in_2 ./.cake3/tmp___lib_urweb_soup_lib_in_1 ./.cake3/tmp___lib_urweb_soup_lib_in_2 ./.cake3/tmp___lib_urweb_xmlw_lib_in_1 ./.cake3/tmp___lib_urweb_xmlw_lib_in_2 ./.cake3/tmp___lib_urweb_xmlw_test_XMLW1_in_1 ./.cake3/tmp___lib_urweb_xmlw_test_XMLW1_in_2 ./HomePage.db ./HomePage.exe ./HomePage.sql ./HomePage.urp ./autogen/Slides_Minsk_2014_pdf_c.o ./lib/oilprice/Oilprice.exe ./lib/oilprice/Oilprice.sql ./lib/oilprice/Oilprice.urp ./lib/oilprice/autogen/Oilprice_css_c.o ./lib/oilprice/autogen/favicon_ico_c.o ./lib/oilprice/autogen/flag_ru_gif_c.o ./lib/oilprice/autogen/flag_uk_gif_c.o ./lib/uru3/Bootstrap/autogen/B1_css_c.o ./lib/uru3/Bootstrap/autogen/B2_css_c.o ./lib/uru3/Bootstrap/autogen/B3_Login_css_c.o ./lib/uru3/Bootstrap/autogen/FormSignin_css_c.o ./lib/uru3/Bootstrap/autogen/Modal_css_c.o ./lib/uru3/Bootstrap/autogen/Narrow_css_c.o ./lib/uru3/Bootstrap/autogen/Tooltip_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_css_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_min_js_c.o ./lib/uru3/Bootstrap/autogen/bootstrap_theme_css_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_eot_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_svg_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_ttf_c.o ./lib/uru3/Bootstrap/autogen/glyphicons_halflings_regular_woff_c.o ./lib/uru3/Bootstrap/autogen/holder_js_c.o ./lib/uru3/Bootstrap/lib.urp ./lib/uru3/Bootstrap/test/B1.exe ./lib/uru3/Bootstrap/test/B1.urp ./lib/uru3/Bootstrap/test/B2.exe ./lib/uru3/Bootstrap/test/B2.urp ./lib/uru3/Bootstrap/test/B3_Login.exe ./lib/uru3/Bootstrap/test/B3_Login.urp ./lib/uru3/Bootstrap/test/Modal.exe ./lib/uru3/Bootstrap/test/Modal.urp ./lib/uru3/Bootstrap/test/Narrow.exe ./lib/uru3/Bootstrap/test/Narrow.urp ./lib/uru3/BootstrapMisc/autogen/BootstrapSlider_js_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_css_c.o ./lib/uru3/BootstrapMisc/autogen/bootstrap_slider_min_js_c.o ./lib/uru3/BootstrapMisc/lib.urp ./lib/uru3/JQuery/autogen/jquery_1_9_1_js_c.o ./lib/uru3/JQuery/lib.urp ./lib/uru3/Uru/Script.o ./lib/uru3/Uru/lib.urp ./lib/urweb-callback/CallbackFFI.o ./lib/urweb-callback/demo/Demo2.exe ./lib/urweb-callback/demo/Demo2.sql ./lib/urweb-callback/demo/Demo2.urp ./lib/urweb-callback/lib.urp ./lib/urweb-captcha/Captcha_ffi.o ./lib/urweb-captcha/lib.urp ./lib/urweb-captcha/lib/captcha/Makefile ./lib/urweb-captcha/lib/captcha/libcaptcha.a ./lib/urweb-compet/Compet.exe ./lib/urweb-compet/Compet.sql ./lib/urweb-compet/Compet.urp ./lib/urweb-compet/autogen/Compet_css_c.o ./lib/urweb-etab/Etab.exe ./lib/urweb-etab/Etab.sql ./lib/urweb-etab/Etab.urp ./lib/urweb-etab/autogen/Etab_css_c.o ./lib/urweb-etab/lib/urweb-aatree/lib/lib_bits/src/c/Bits.o ./lib/urweb-monad-pack/lib.urp ./lib/urweb-prelude/lib.urp ./lib/urweb-soup/Analytics.o ./lib/urweb-soup/autogen/Soup_css_c.o ./lib/urweb-soup/lib.urp ./lib/urweb-xmlw/lib.urp ./lib/urweb-xmlw/test/XMLW1.exe ./lib/urweb-xmlw/test/XMLW1.sql ./lib/urweb-xmlw/test/XMLW1.urp
 	-rm -rf .cake3
 
 endif

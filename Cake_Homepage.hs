@@ -12,6 +12,7 @@ import qualified Cake_Prelude as Prelude
 import qualified Cake_MonadPack as Prelude
 import qualified Cake_XMLW as XMLW
 import qualified Cake_Oilprice as Oil
+import qualified Cake_Etab as Etab
 import Cake_Homepage_P
 
 pn = file "HomePage.urp"
@@ -27,6 +28,7 @@ app = uwapp "-dbms postgres" pn $ do
   library Bootstrap.demo_narrow
   library XMLW.demo
   library Oil.app
+  library Etab.app
   sql (pn.="sql")
   database ("dbname="++(takeBaseName pn))
   rewrite UW.all "HomePage/main"

@@ -22,3 +22,9 @@
 [submodule "lib/urweb-soup"]
 	path = lib/urweb-soup
 	url = https://github.com/grwlf/urweb-soup
+[submodule "lib/urweb-etab"]
+	path = lib/urweb-etab
+	url = https://github.com/grwlf/urweb-etab
+[submodule "lib/urweb-captcha"]
+	path = lib/urweb-captcha
+	url = https://github.com/grwlf/urweb-captcha

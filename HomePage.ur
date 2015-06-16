@@ -8,6 +8,10 @@ fun main {} : transaction page =
     <body>
       <h2>Ur/Web</h2>
       <p>
+      <h3>Etab</h3>
+      <a link={Etab.main {}}>Archery competitions table (in Russian)</a>
+      </p>
+      <p>
       <h3>Oilprice</h3>
       <a link={Oilprice.main {}}>Oilprice demo</a>
       </p>
