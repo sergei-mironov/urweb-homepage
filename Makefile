@@ -808,8 +808,6 @@ ifneq ($(MAKECMDGOALS),clean)
 .INTERMEDIATE: ./.fix-multy1
 ./.fix-multy1:
 	-mkdir .cake3
-	git -C lib/uru3/BootstrapMisc submodule update --init bootstrap-slider
-	git -C lib/uru3/BootstrapMisc/bootstrap-slider checkout -f
 	MAIN=1 $(MAKE) -f ./Makefile $(MAKECMDGOALS)
 .PHONY: ./HomePage.exe
 ./HomePage.exe: ./.fix-multy1
