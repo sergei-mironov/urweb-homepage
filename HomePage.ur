@@ -9,7 +9,8 @@ fun main {} : transaction page =
       <h2>Ur/Web</h2>
       <p>
       <h3>Etab</h3>
-      <a link={Etab.main {}}>Archery competitions table (in Russian)</a>
+      <p>[DEFUNC] Archery competitions table (in Russian)</p>
+      <a href="github.com/grwlf/urweb-etab">Sources</a>
       </p>
       <p>
       <h3>Oilprice</h3>
@@ -23,7 +24,8 @@ fun main {} : transaction page =
       <h3>Compet</h3>
       The archery competitions helper in it's early development state. In
       this application XmlGen monad is used for the HTML generation.
-      <a link={Compet.main {}}>Compet main page</a>
+      (* <a link={Compet.main {}}>Compet main page</a> *)
+      <a href="github.com/grwlf/urweb-compet">Sources</a>
       </p>
       <p>
       <h3>Urweb-callback</h3>

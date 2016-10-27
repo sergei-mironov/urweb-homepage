@@ -1,3 +1,6 @@
 #!/bin/sh
 
-SWAKS=`which swaks` PASS='12Usvtqkbot' PING=`which ping` ./HomePage.exe
+echo -n "Enter password: "
+read P
+
+SWAKS=`which swaks` PASS=$P PING=`which ping` ./HomePage.exe
