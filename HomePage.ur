@@ -32,6 +32,10 @@ fun main {} : transaction page =
       <a link={Demo2.main {}}>Ping demo</a>
       </p>
       <p>
+      <h3>Urweb-captcha</h3>
+      <a link={Captcha1.main {}}>Captcha demo</a>
+      </p>
+      <p>
       <h3>Uru/Bootstrap</h3>
       <a link={B1.main {}}>Starter template demo</a>
       <a link={B2.main {}}>Bootstrap theme demo</a>

@@ -21,6 +21,8 @@ rec {
     oilprice = external ./lib/oilprice;
     callback = external ./lib/urweb-callback;
     callback-demo = external ./lib/urweb-callback;
+    captcha = external ./lib/urweb-captcha;
+    captcha-test = external ./lib/urweb-captcha;
   };
 
   homepage = mkExe {
