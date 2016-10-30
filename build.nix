@@ -17,6 +17,8 @@ rec {
     bootstrap = external ./lib/uru3/Bootstrap;
     bootstrap-demo = external ./lib/uru3/Bootstrap;
     bootstrap-misc = external ./lib/uru3/BootstrapMisc;
+    audio = external ./lib/uru3/Audio;
+    audio-demo = external ./lib/uru3/Audio;
     uru = external ./lib/uru3/Uru;
     oilprice = external ./lib/oilprice;
     callback = external ./lib/urweb-callback;
