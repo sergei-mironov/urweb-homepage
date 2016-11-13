@@ -34,8 +34,7 @@ rec {
     libraries = libraries // { };
 
     statements = [
-      (rule "allow url https://github.com/grwlf/urweb-etab")
-      (rule "allow url https://github.com/grwlf/urweb-compet")
+      (rule "allow url https://github.com/grwlf*")
       (sys "list")
       (sys "char")
       (sys "string")
