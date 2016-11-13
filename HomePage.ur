@@ -52,7 +52,7 @@ fun main {} : transaction page =
       <p>
       <h3>Uru</h3>
       Uru is a collection of self-contained UI modules. Currently it includes
-      <p><a href="https://github.com/grwlf/uru">Source</a></p>
+      <p><a href="https://github.com/grwlf/uru3">Source</a></p>
       <a link={B1.main {}}>Bootstrap starter template</a>
       <a link={B2.main {}}>Bootstrap theme</a>
       <a link={B3_Login.main {}}>Login page</a>
