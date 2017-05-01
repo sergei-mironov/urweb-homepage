@@ -35,11 +35,17 @@ rec {
 
     statements = [
       (rule "allow url https://github.com/grwlf*")
+      (rule "allow url https://static.garmin*")
+      (rule "allow url https://buy.garmin*")
+      (rule "allow url https://www.fitbit*")
+      (rule "allow url https://static1.fitbit*")
+      (rule "allow url https://goo.gl*")
       (sys "list")
       (sys "char")
       (sys "string")
       (sys "option")
       (embed ./tut/Slides-Minsk-2014.pdf)
+      (src1 ./src/Fitness.ur)
       (src ./HomePage.ur ./HomePage.urs)
     ];
   };

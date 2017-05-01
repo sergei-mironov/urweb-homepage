@@ -61,6 +61,11 @@ fun main {} : transaction page =
       <a link={Audio1.main {}}>Audio control</a>
       </p>
 
+      <h2>Fitness bracelet comparision</h2>
+      <p>
+      <a link={Fitness.chart {}}>chart</a>
+      </p>
+
       <h2>Slides and materials</h2>
       <p>
       <a link={Slides_Minsk_2014_pdf.content {}} download="UrWeb-Minsk-2014.pdf">Minsk, October 25, 2014</a>
